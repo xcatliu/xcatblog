@@ -214,7 +214,7 @@ createElement 也被复写了
 
 熊孩子：老湿，你这个 `iframe` 方法确实厉害，但是假如我把 `document.createElement` 也复写了，你怎么办呢？
 
-老湿：熊孩子滚远点！！！
+老湿：熊孩子滚远点！
 
 
 Reference
