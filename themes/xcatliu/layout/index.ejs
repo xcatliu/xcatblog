@@ -1,7 +1,7 @@
 <div class="grid">
     <div class="unit whole">
 		<ul class="post-list">
-		<% site.posts.forEach(function(post) { %>
+		<% site.posts.reverse().forEach(function(post) { %>
 		    <li>
 		        <a href="<%= post.permalink %>"><%= post.title %></a>
 		        <small>
