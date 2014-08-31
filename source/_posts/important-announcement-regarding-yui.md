@@ -1,6 +1,12 @@
-title: "关于 YUI 的重要公告"
+title: "[译] 关于 YUI 的重要公告"
 date: 2014-08-31
 ---
+
+原文：[Important Announcement Regarding YUI](http://yahooeng.tumblr.com/post/96098168666/important-announcement-regarding-yui)
+
+译者按：YUI 伴随着我两年有余，我见证了它的伟大与落魄。它开创了模块加载，发扬了命名空间。它有强大的事件和控件机制，也有臃肿的条件加载和皮肤。它的精髓有如一座图书馆，让你不由得感慨设计之宏大，它的 features 有如一个工具箱，翻箱倒柜一定可以找到合适的工具。然而，时代的巨浪袭来，船大难以掉头，最终被淹没。值得我们反思。本人翻译经验不多，难免有纰漏之处，望指正，另外原文也值得一读。
+
+正文：
 
 2005 年，雅虎创造了 YUI（[Yahoo User Interface library](http://yuilibrary.com/)），2006 年 2 月 13 日，[雅虎开源了 YUI](http://www.yuiblog.com/blog/2006/02/13/the-yahoo-user-interface-library/)。尽管从那时起 YUI 发生了巨大的演变，但它的宗旨始终都是为 web 富应用的开发提供包罗万象的工具。一直以来，YUI 都是雅虎的重要部分，无数行基于 YUI 的代码到现在仍运行在雅虎的网站上。然而我们很清楚，web 技术正在朝着一个新的方向发展。
 
@@ -10,6 +16,6 @@ Web 技术的演变使得大型 JavaScript 库（就像 YUI）在社区种的关
 
 因此，**我们做了一个艰难的决定，立即停止 YUI 的开发**，也是为了能够集中精力转型到新的技术。换句话说，将来 YUI 的新版本发布将会越来越小，也越来越慢，并且只会包含针对性的修复和对雅虎网站造成严重影响的问题修复。
 
-YUI 团队的使命是继续不忘初心的创造下一代界面展现技术。我们对界面展现技术的未来充满乐观，我们渴望继续与前端社区共同学习和分享。
+YUI 团队的使命是继续不忘初心的创造下一代界面展现技术。我们对界面展现技术的未来充满乐观。我们渴望继续与前端社区共同学习和分享。
 
 Julien Lecomte, Director of Engineering, Yahoo Presentation Technologies

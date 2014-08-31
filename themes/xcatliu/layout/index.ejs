@@ -1,8 +1,8 @@
 <div class="grid">
     <div class="unit whole">
 		<ul class="post-list">
-		<% site.posts.reverse().forEach(function(post) { %>
-            <li>
+		<% site.posts.sort('date', 'desc').each(function(post) { %>
+		    <li>
 		        <a href="<%= post.permalink %>"><%= post.title %></a>
 		        <small>
                     <time class="date"><%- date(post.date) %></time>
