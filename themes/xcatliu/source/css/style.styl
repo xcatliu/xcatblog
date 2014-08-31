@@ -1,0 +1,27 @@
+@import "nib"
+@import "_partial/gridism.css"
+@import "_partial/typo.css"
+@import "_partial/github.css"
+
+body
+  font-size: 18px
+
+.header, .footer
+  font-size: 0.8em
+  color: #aaa
+  background: #f8f8f8
+
+.header-left
+  float: left
+
+.header-right
+  float: right
+
+@media screen and (max-width: 568px)
+  body
+  	font-size: 16px
+  pre
+    margin-left: -20px
+    margin-right: -20px
+    padding-left: 20px
+    padding-right: 20px

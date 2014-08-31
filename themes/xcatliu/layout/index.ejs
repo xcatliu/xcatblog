@@ -1,0 +1,7 @@
+<ul>
+<% site.posts.forEach(function(post) { %>
+    <li>
+        <a href="<%= post.permalink %>"><%= post.title %></a>
+    </li>
+<% }); %>
+</ul>

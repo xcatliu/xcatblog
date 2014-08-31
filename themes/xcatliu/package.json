@@ -1,0 +1,19 @@
+{
+  "name": "hexo-theme-xcatliu",
+  "version": "2.8.2",
+  "description": "The hexo theme for http://xcatliu.com",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xcatliu/hexo-theme-xcatliu.git"
+  },
+  "author": "xcatliu <xcatliu@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/xcatliu/hexo-theme-xcatliu/issues"
+  },
+  "homepage": "https://github.com/xcatliu/hexo-theme-xcatliu"
+}

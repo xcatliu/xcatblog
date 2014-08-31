@@ -1,0 +1,22 @@
+<section class="header">
+	<div class="grid">
+		<div class="unit whole">
+			<div class="header-left">
+				<nav>
+					<a href="http://xcatliu.com/">XcatLiu</a>
+					<span>&#62;</span>
+					<a href="http://blog.xcatliu.com/">Blog</a>
+					<% if (page.title) { %>
+						<span>&#62;</span>
+						<a href="<%= page.permalink %>"><%= page.title %></a>
+					<% } %>
+				</nav>
+			</div>
+			<div class="header-right">
+				<nav>
+					<a href="http://about.xcatliu.com/">About</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
