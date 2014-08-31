@@ -2,7 +2,7 @@
     <div class="unit whole">
 		<ul class="post-list">
 		<% site.posts.reverse().forEach(function(post) { %>
-		    <li>
+            <li>
 		        <a href="<%= post.permalink %>"><%= post.title %></a>
 		        <small>
                     <time class="date"><%- date(post.date) %></time>

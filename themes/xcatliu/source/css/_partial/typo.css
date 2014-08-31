@@ -8,6 +8,7 @@ html{
   -ms-text-size-adjust:100%;
   text-rendering:optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: grayscale;
 }
 
 /* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
@@ -92,7 +93,7 @@ blockquote {
   margin:1em 3em 1em 2em;
 }
 
-@media only screen and ( max-width:767px ){
+@media only screen and ( max-width:640px ){
   blockquote{ margin:1em 0; }
 }
 
@@ -180,20 +181,20 @@ mark{
 }
 
 /* 代码片断 */
-pre, code{
+pre, code, pre tt{
   font-family:Courier, 'Courier New', monospace;
   background:#f8f8f8;
 }
 
-pre {
+pre{
   padding:0.5em 1em;
 }
 
-code {
+code{
   padding:0.2em 0.4em;
 }
 
-pre code {
+pre code{
   padding:0;
   border:0;
   display:block;
@@ -219,7 +220,7 @@ figcaption{
   color:#888;
 }
 
-strong, b{font-weight:inherit;color:#000;}
+strong, b{font-weight:bold;color:#000;}
 
 /* 可拖动文件添加拖动手势 */
 [draggable]{
