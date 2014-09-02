@@ -14,7 +14,7 @@ language:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://blog.xcatliu.com
 root: /
-permalink: blog/:title/
+permalink: :category/:title/
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -33,7 +33,7 @@ external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
-relative_link: true
+relative_link: false
 highlight:
   enable: false
   line_number:
