@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: XcatLiu's Blog
+title: XcatLiu
 subtitle:
 description:
 author: XcatLiu
@@ -12,7 +12,7 @@ language:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.xcatliu.com
+url: http://xcatliu.com/
 root: /
 permalink: :category/:title/
 tag_dir: tags

@@ -1,5 +1,26 @@
 <meta charset="utf-8">
-<title><% if (page.title) { %><%= page.title %><% } else { %><%= config.title %><% } %></title>
+<title>
+    <% if (page.title) { %>
+        <%= page.title %>
+    <% } else { %>
+        <%
+        var category;
+        if (page.category) {
+            site.categories.each(function(cat) {
+                if (cat.name === page.category) {
+                    category = cat;
+                }
+            });
+        } else if (page.categories) {
+            category = page.categories.first();
+        }
+        if (category) { %>
+            <%= config.title + "'s " + category.name %>
+        <% } else { %>
+            <%= config.title %>
+        <% } %>
+    <% } %>
+</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="icon" type="image/png" href="<%- url_for('favicon.png') %>">

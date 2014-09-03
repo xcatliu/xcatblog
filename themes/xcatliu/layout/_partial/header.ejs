@@ -3,10 +3,23 @@
 		<div class="unit whole">
 			<div class="header-left">
 				<nav>
-					<a href="http://xcatliu.com/">XcatLiu</a>
-					<span>&#62;</span>
-					<a href="http://blog.xcatliu.com/">Blog</a>
-					<% if (page.title) { %>
+					<a href="<%= config.root %>">XcatLiu</a>
+					<%
+					var category;
+					if (page.category) {
+						site.categories.each(function(cat) {
+							if (cat.name === page.category) {
+								category = cat;
+							}
+						});
+					} else if (page.categories) {
+						category = page.categories.first();
+					}
+					if (category) { %>
+						<span>&#62;</span>
+						<a href="<%= url_for(category.path) %>"><%= category.name %></a>
+					<% }
+					if (page.title) { %>
 						<span>&#62;</span>
 						<a href="<%= page.permalink %>"><%= page.title %></a>
 					<% } %>
