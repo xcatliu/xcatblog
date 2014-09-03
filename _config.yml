@@ -17,7 +17,7 @@ root: /
 permalink: :category/:title/
 tag_dir: tags
 archive_dir: archives
-category_dir: categories
+category_dir: .
 code_dir: downloads/code
 permalink_defaults:
 
