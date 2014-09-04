@@ -1,11 +1,14 @@
 <div class="grid">
     <div class="unit whole">
-        <ul class="post-list">
+    <% if (site.categories.length > 0) { %>
+        <h2>Categories</h2>
+        <ul class="categories-list">
         <% site.categories.each(function(category) { %>
             <li>
                 <a href="<%= url_for(category.path) %>"><%= category.name %></a>
             </li>
         <% }); %>
         </ul>
+    <% } %>
     </div>
 </div>
