@@ -1,5 +1,5 @@
 ---
-title: abstract-syntax-tree
+title: 抽象语法树
 date: 2014-09-07
 categories: blog
 ---
