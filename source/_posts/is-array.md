@@ -1,3 +1,4 @@
+---
 title: "从 isArray 谈起"
 date: 2014-08-23
 categories: blog

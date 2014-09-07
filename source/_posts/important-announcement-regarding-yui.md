@@ -1,3 +1,4 @@
+---
 title: "[译] 关于 YUI 的重要公告"
 date: 2014-08-31
 categories: blog
