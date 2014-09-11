@@ -136,7 +136,7 @@ var UglifyJS = require('uglify-js');
 var ast = UglifyJS.parse('function sum(foo, bar){ return foo + bar; }');
 ast.figure_out_scope();
 ast.walk(new UglifyJS.TreeWalker(function(node) {
-    console.log(node.__proto__.TYPE + ': ' + node.print_to_string());
+    console.log(node.print_to_string());
 }));
 /*
 function sum(foo,bar){return foo+bar}
