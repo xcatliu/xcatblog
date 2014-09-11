@@ -160,7 +160,77 @@ UglifyJS 已经提供了直接压缩代码的脚本，walker 看上去貌似也�
 
 下面考虑这样一个需求：
 
-我们知道，`parseInt` 用于将字符串变成
+我们知道，`parseInt` 用于将字符串变成整数，但是它有第二个参数，表示以几进制识别字符串，若没有传第二个参数，则会自行判断，比如：
+
+```
+parseInt('10.23');     // 10            转换成正整数
+parseInt('10abc');     // 10            忽略其他字符
+parseInt('10', 10);    // 10            转换成十进制
+parseInt('10', 2);     // 2             转换成二进制
+parseInt('0123');      // 83 or 123     不同浏览器不一样，低版本浏览器会转换成八进制
+parseInt('0x11');      // 17            转换成十六进制
+```
+
+因为有一些情况是和我们预期不同的，所以建议任何时候都加上第二个参数。
+
+下面希望有一个程序，查看所有 parseInt 有没有第二个参数，没有的话加个参数 10，表示以十进制识别字符串。
+
+使用 UglifyJS 可以实现此功能：
+
+```
+#! /usr/bin/env node
+
+var U2 = require("uglify-js");
+
+function replace_parseint(code) {
+    var ast = U2.parse(code);
+    // accumulate `parseIng()` nodes in this array
+    var parseint_nodes = [];
+    ast.walk(new U2.TreeWalker(function(node){
+        if (node instanceof U2.AST_Call
+            && node.expression.print_to_string() === 'parseInt'
+            && node.args.length === 1) {
+            parseint_nodes.push(node);
+        }
+    }));
+    // now go through the nodes backwards and replace code
+    for (var i = parseint_nodes.length; --i >= 0;) {
+        var node = parseint_nodes[i];
+        var start_pos = node.start.pos;
+        var end_pos = node.end.endpos;
+        node.args.push(new U2.AST_Number({
+            value: 10
+        }));
+        var replacement = node.print_to_string({ beautify: true });
+        code = splice_string(code, start_pos, end_pos, replacement);
+    }
+    return code;
+}
+
+function splice_string(str, begin, end, replacement) {
+    return str.substr(0, begin) + replacement + str.substr(end);
+}
+
+// test it
+
+function test() {
+    if (foo) {
+      parseInt('12342');
+    }
+    parseInt('0012', 3);
+}
+
+console.log(replace_parseint(test.toString()));
+
+/*
+function test() {
+    if (foo) {
+      parseInt("12342", 10);
+    }
+    parseInt('0012', 3);
+}
+*/
+```
 
 Reference
 ---------
