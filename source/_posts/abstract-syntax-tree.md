@@ -153,8 +153,8 @@ bar
 
 UglifyJS 已经提供了直接压缩代码的脚本，walker 看上去貌似也没啥用，这些工具有什么使用场景呢？
 
-抽象语法树应用
---------------
+抽象语法树的应用
+----------------
 
 假如我们有重构 JavaScript 的需求，它们就派上用场啦。
 
@@ -173,7 +173,7 @@ parseInt('0x11');      // 17            转换成十六进制
 
 因为有一些情况是和我们预期不同的，所以建议任何时候都加上第二个参数。
 
-下面希望有一个程序，查看所有 parseInt 有没有第二个参数，没有的话加个参数 10，表示以十进制识别字符串。
+下面希望有一个程序，查看所有 parseInt 有没有第二个参数，没有的话加上第二个参数 10，表示以十进制识别字符串。
 
 使用 UglifyJS 可以实现此功能：
 
@@ -184,7 +184,7 @@ var U2 = require("uglify-js");
 
 function replace_parseint(code) {
     var ast = U2.parse(code);
-    // accumulate `parseIng()` nodes in this array
+    // accumulate `parseInt()` nodes in this array
     var parseint_nodes = [];
     ast.walk(new U2.TreeWalker(function(node){
         if (node instanceof U2.AST_Call
@@ -231,6 +231,22 @@ function test() {
 }
 */
 ```
+
+在这里，使用了 walker 找到 parseInt 调用的地方，然后检查是否有第二个参数，没有的话，记录下来，之后根据每个记录，用新的包含第二个参数的内容替换掉元内容，完成代码的重构。
+
+也许有人会问，这种简单的情况，用正则匹配也可以方便的替换，干嘛要用抽象语法树呢？
+
+答案就是，抽象语法树是通过分析语法实现的，有一些正则无法（或者很难）做到的优势，比如，parseInt() 整个是一个字符串，或者在注释中，此种情况会被正则误判：
+
+```
+var foo = 'parseInt("12345")';
+// parseInt("12345");
+```
+
+总结
+----
+
+抽象语法树在计算机领域中应用广泛，以上仅讨论了抽象语法树在 JavaScript 中的一个小应用，期待更多用法等着大家去尝试。
 
 Reference
 ---------
