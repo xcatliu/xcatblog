@@ -1,6 +1,6 @@
 ---
 title: 抽象语法树在 JavaScript 中的应用
-date: 2014-09-07
+date: 2014-09-11
 categories: blog
 ---
 
@@ -61,7 +61,7 @@ if (foo === true) {
 JavaScript 抽象语法树
 ---------------------
 
-构造 JavaScript 抽象语法树有多种工具，比如 [v8](https://code.google.com/p/v8/source/browse/branches/bleeding_edge/src/ast.h)、[SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API)、[UglifyJS](http://lisperator.net/uglifyjs/ast) 等，这里重点介绍 UglifyJS。
+构造 JavaScript 抽象语法树有多种工具，比如 [v8](https://code.google.com/p/v8/source/browse/branches/bleeding_edge/src/ast.h)、[SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API)、[UglifyJS] 等，这里重点介绍 UglifyJS。
 
 ### UglifyJS
 
@@ -232,7 +232,7 @@ function test() {
 */
 ```
 
-在这里，使用了 walker 找到 parseInt 调用的地方，然后检查是否有第二个参数，没有的话，记录下来，之后根据每个记录，用新的包含第二个参数的内容替换掉元内容，完成代码的重构。
+在这里，使用了 walker 找到 parseInt 调用的地方，然后检查是否有第二个参数，没有的话，记录下来，之后根据每个记录，用新的包含第二个参数的内容替换掉原内容，完成代码的重构。
 
 也许有人会问，这种简单的情况，用正则匹配也可以方便的替换，干嘛要用抽象语法树呢？
 
@@ -246,13 +246,14 @@ var foo = 'parseInt("12345")';
 总结
 ----
 
-抽象语法树在计算机领域中应用广泛，以上仅讨论了抽象语法树在 JavaScript 中的一个小应用，期待更多用法等着大家去尝试。
+抽象语法树在计算机领域中应用广泛，以上仅讨论了抽象语法树在 JavaScript 中的一个小应用，期待更多的用法等着大家去尝试和探索。
 
 Reference
 ---------
 
 1. [Wikipedia AST]
+2. [UglifyJS]
 
 
 [Wikipedia AST]: http://en.wikipedia.org/wiki/Abstract_syntax_tree
-
+[UglifyJS]: http://lisperator.net/uglifyjs/
