@@ -1,11 +1,13 @@
 <meta charset="utf-8">
 <title>
-    <% if (page.title) { %>
-        <%= page.title %>
-    <% } %>
+<% if (page.title) { %>
+  <%= page.title %>
+<% } %>
 </title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="icon" type="image/png" href="<%- url_for('favicon.png') %>">
+<% if (theme.favicon) { %>
+  <link rel="icon" type="image/png" href="<%= theme.favicon %>">
+<% } %>
 
 <%- css('css/style') %>
