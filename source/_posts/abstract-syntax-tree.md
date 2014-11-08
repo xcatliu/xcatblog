@@ -1,7 +1,6 @@
 ---
 title: "抽象语法树在 JavaScript 中的应用"
 date: 2014-10-08
-categories: blog
 ---
 
 抽象语法树是什么

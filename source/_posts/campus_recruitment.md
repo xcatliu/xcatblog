@@ -1,7 +1,6 @@
 ---
 title: "校招季"
 date: 2014-11-03
-categories: blog
 ---
 
 一年一度的校招季快要结束了，同学们是不是拿 offer 拿到手软呢？
