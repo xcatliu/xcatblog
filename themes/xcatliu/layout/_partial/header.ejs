@@ -4,22 +4,11 @@
 			<div class="header-left">
 				<nav>
 					<a href="<%= config.root %>">XcatLiu</a>
-					<%
-					var category;
-					if (page.category) {
-						site.categories.each(function(cat) {
-							if (cat.name === page.category) {
-								category = cat;
-							}
-						});
-					} else if (page.categories) {
-						category = page.categories.first();
-					}
-					if (category) { %>
+					<% if (page.archive === true || page.layout === 'post') { %>
 						<span>&#62;</span>
-						<a href="<%= url_for(category.path) %>"><%= category.name %></a>
-					<% }
-					if (page.title) { %>
+						<a href="/blog">blog</a>
+					<% } %>
+					<% if (page.title) { %>
 						<span>&#62;</span>
 						<a href="<%= page.permalink %>"><%= page.title %></a>
 					<% } %>
