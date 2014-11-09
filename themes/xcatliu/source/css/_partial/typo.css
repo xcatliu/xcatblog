@@ -183,23 +183,14 @@ mark{
 /* 代码片断 */
 pre, code, pre tt{
   font-family:Courier, 'Courier New', monospace;
-  background:#f8f8f8;
 }
 
 pre{
-  padding:0.5em 1em;
-}
-
-code{
-  padding:0.2em 0.4em;
-}
-
-pre code{
-  padding:0;
-  border:0;
+  background:#f8f8f8;
+  border:1px solid #ddd;
+  padding:1em 1.5em;
   display:block;
-  overflow-x:auto;
-  font-size:0.8em;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 一致化 horizontal rule */
@@ -339,7 +330,6 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* 高亮选中 */
-/*
 ::-moz-selection{
   background:#08c;
   color:#fff;
@@ -349,7 +339,6 @@ h1, h2, h3, h4, h5, h6{
   background:#08c;
   color:#fff;
 }
-*/
 
 .typo-em, .typo em, legend, caption{
   color:#000;
