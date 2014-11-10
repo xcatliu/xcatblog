@@ -2,19 +2,28 @@
 @import "_partial/gridism.css"
 @import "_partial/typo.css"
 
-body
-  font-size: 18px
+// 覆盖 typo.css
+a
+  color: #4072a6
+.typo a
+  border-bottom: 1px solid #4072a6
+blockquote
+  border-left: 1px solid #4072a6
 
-.header
-.footer
-  color: #aaa
-  background: #f8f8f8
 
 .header-left
   float: left
-
 .header-right
   float: right
+.header-left a
+  margin-right: 1em
+.header-right a
+  margin-left: 1em
+
+.header
+.footer
+  color: #ccc
+  background: #f8f8f8
 
 .article-header
 .article-meta
@@ -25,11 +34,3 @@ body
   .date
     margin-left: 1em
 
-@media screen and (max-width: 640px)
-  body
-  	font-size: 16px
-  pre
-    margin-left: -20px
-    margin-right: -20px
-    padding-left: 20px
-    padding-right: 20px

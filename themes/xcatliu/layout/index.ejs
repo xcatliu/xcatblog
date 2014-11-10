@@ -1,22 +1,5 @@
 <div class="grid">
   <div class="unit whole">
     <h2><a href="/blog">Blog</a></h2>
-    <ul class="post-list">
-    <% page.posts.sort('date', 'desc').each(function(post) { %>
-      <li>
-        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
-        <small>
-          <time class="date"><%- date(post.date) %></time>
-        </small>
-      </li>
-    <% }); %>
-    </ul>
-    <h2>About this site</h2>
-    <p>This site is powered by Hexo. Theme was designed by me. All other used technologies listed below:</p>
-    <ul>
-      <li>
-        <a href="https://github.com/cobyism/gridism" target="_blank">gridism</a>
-      </li>
-    </ul>
   </div>
 </div>
