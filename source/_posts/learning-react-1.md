@@ -7,7 +7,7 @@ React 是一个用于构建 UI 的 JavaScript 库，已经应用于 Facebook 和
 
 注意：
 
-- 本系列适合有一定 JavaScript 基础，并对 MVC 或 MVVM 有一定了解的读者
+- 本系列适合有较好 JavaScript 基础，并对 MVC 或 MVVM 有一定了解的读者
 - <sup>？</sup>表示存疑的部分，欢迎大家给出解释
 
 初识 React
@@ -40,9 +40,9 @@ React 实现了不同于数据绑定的数据流——单向反应性数据流<s
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/9wre9yj7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-React 使用 `React.createClass` 创建一个 WebComponent，然后使用 `React.render` 渲染到 DOM 节点上，让人眼前一亮的是，直接在 js 里面使用了没有带引号的 html 标签。
+React 使用 `React.createClass` 创建一个组件，然后使用 `React.render` 渲染到 DOM 节点上，让人眼前一亮的是，直接在 js 里面使用了没有带引号的 html 标签。
 
-原来，这是一种类似 XML 的语法 JSX，本文重点不在此，关于 JSX 的介绍请异步：[JSX Specification]。
+原来，这是一种类似 XML 的语法 JSX，关于 JSX 的介绍请点击：[JSX Specification]。
 
 另一个需要注意的是，`createClass` 中的 `render` 方法里面通过 `{this.props.name}` 获取到了传入 `HelloMessage` 的 `name` 参数。其实，`{}` 类似与传统模板引擎的标志符，`this.props` 则包含所有引用组件时传入的参数。
 
