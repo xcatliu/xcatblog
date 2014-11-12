@@ -1,14 +1,7 @@
 @import "nib"
 @import "_partial/gridism.css"
 @import "_partial/typo.css"
-
-// 覆盖 typo.css
-a
-  color: #4072a6
-.typo a
-  border-bottom: 1px solid #4072a6
-blockquote
-  border-left: 1px solid #4072a6
+@import "_partial/typo-xcatliu.styl"
 
 
 .header-left
@@ -29,6 +22,10 @@ blockquote
 .article-meta
 .footer
   text-align: center
+
+.article-meta address
+  display: inline
+  margin-right: 1em
 
 .post-list
   .date
