@@ -87,3 +87,10 @@ exclude_generator:
 deploy:
   type: github
   repo: git@github.com:xcatliu/xcatliu.github.io.git
+
+
+# Feed generator
+feed:
+  type: atom
+  path: feed.xml
+  limit: 10
