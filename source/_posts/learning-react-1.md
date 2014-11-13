@@ -1,5 +1,5 @@
 ---
-title: "React 学习笔记一：初识 React"
+title: React 学习笔记一：初识 React
 date: 2014-11-08
 ---
 
@@ -54,7 +54,7 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 
 其中 JSXTransformer 即是使浏览器支持 JSX 的关键所在。但是在生产环境中，我们应该使用 React 提供的转换工具，[react-tools](https://www.npmjs.org/package/react-tools)，将 JSX 转换成 js，转换后的结果如下：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/9wre9yj7/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/9wre9yj7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 小结
 ---
