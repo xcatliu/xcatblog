@@ -60,7 +60,7 @@ react-0.12.0
 </html>
 ```
 
-之前已经了解了 JSX，这里可以看到写了 JSX 的 `script` 的 `type` 被设置为 `text/jsx` 了，这个的目的就是告诉浏览器，此标签内的内容需要用 `JSXTransformer.js` 才能解析。
+之前已经了解了 JSX，这里可以看到写了 JSX 的 `script` 标签设置了 `type="text/jsx"` 了，这个的目的就是告诉浏览器，此标签内的内容需要用 `JSXTransformer.js` 才能解析。
 
 HTML 和 js 分离
 ---
@@ -74,7 +74,7 @@ React.render(
 );
 ```
 
-然后把 `helloworld.html` 中的 `script` 改为：
+然后把 `helloworld.html` 中的 `script` 标签改为：
 
 ```html
 <script type="text/jsx" src="src/helloworld.js"></script>
@@ -87,7 +87,7 @@ React.render(
 
 之前了解过，在生产环境中使用 React，需要一个预编译过程，那么如何使用预编译工具呢？
 
-首先需要安装 [react tools]，安装方法如下（当然需要能使用 npm）：
+首先需要安装 [react-tools]，安装方法如下（当然需要能使用 npm）：
 
 ```shell
 npm install -g react-tools
@@ -110,7 +110,7 @@ React.render(
 );
 ```
 
-当然，我们的 `helloworld.html` 就再也不需要 `JSXTransformer` 了：
+当然，我们的 `helloworld.html` 就再也不需要 `JSXTransformer` 了，`script` 标签也不需要 `type="text/jsx"` 了。
 
 ```html
 <!DOCTYPE html>
@@ -134,19 +134,27 @@ CommonJS 版本的 React
 
 下一步可以学习 [Tutorial]，或把 `examples` 目录下的例子多看看。
 
+小结
+---
+
+- 使用 JSX 的话，需要引入 `JSXTransformer.js`，且 `script` 标签需要添加 `type="text/jsx"`
+- 使用 [react-tools] 进行预编译
+- 编译完之后，就不需要 `JSXTransformer.js` 了，`script` 标签也不需要 `type="text/jsx"` 了
+- 使用 [react npm package] 来将 react 作为 CommonJS 模块引入
+
 Links
 ---
 
 - [React Index]
 - [Getting Started]
 - [learning-react]
-- [react tools]
+- [react-tools]
 - [react npm package]
 - [Tutorial]
 
 [React Index]: http://facebook.github.io/react/index.html
 [Getting Started]: http://facebook.github.io/react/docs/getting-started.html
 [learning-react]: https://github.com/xcatliu/learning-react
-[react tools]: https://www.npmjs.org/package/react-tools
+[react-tools]: https://www.npmjs.org/package/react-tools
 [react npm package]: https://www.npmjs.org/package/react
 [Tutorial]: http://xcatliu.com/blog/learning-react-4-tutorial.html
