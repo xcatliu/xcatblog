@@ -9,6 +9,7 @@ React 是一个用于构建 UI 的 JavaScript 库，已经应用于 Facebook 和
 
 - 本系列适合有较好 JavaScript 基础，并对 MVC 或 MVVM 有一定了解的读者
 - <sup>？</sup>表示存疑的部分，欢迎大家给出解释
+- React 版本 0.12.0
 
 初识 React
 ---
