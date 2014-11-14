@@ -4,9 +4,6 @@
     <% page.posts.sort('date', 'desc').each(function(post) { %>
       <li>
         <a href="<%= url_for(post.path) %>"><%= post.title %></a>
-        <small>
-          <time class="date"><%- date(post.date) %></time>
-        </small>
       </li>
     <% }); %>
     </ul>
