@@ -1,15 +1,17 @@
 ---
-title: React 学习笔记一：初识 React
+title: React 学习笔记（一）：初识 React
 date: 2014-11-08
 ---
-
-React 是一个用于构建 UI 的 JavaScript 库，已经应用于 Facebook 和 Instargram。本系列是我学习 React 的笔记，与大家分享。
 
 注意：
 
 - 本系列适合有较好 JavaScript 基础，并对 MVC 或 MVVM 有一定了解的读者
 - <sup>？</sup>表示存疑的部分，欢迎大家给出解释
 - React 版本 0.12.0
+
+React 是一个用于构建 UI 的 JavaScript 库，已经应用于 Facebook 和 Instargram。本系列是我学习 React 的笔记，与大家分享。
+
+我们就从 React 的[首页介绍][React Index]开始吧。
 
 初识 React
 ---
@@ -70,7 +72,8 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 Links
 ---
 
-- [React Index](http://facebook.github.io/react/index.html)
+- [React Index]
 - [JSX Specification]
 
+[React Index]: http://facebook.github.io/react/index.html
 [JSX Specification]: http://facebook.github.io/jsx/

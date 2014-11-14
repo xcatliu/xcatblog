@@ -92,5 +92,5 @@ deploy:
 # Feed generator
 feed:
   type: atom
-  path: feed.xml
+  path: atom.xml
   limit: 10
