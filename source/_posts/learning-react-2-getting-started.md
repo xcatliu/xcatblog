@@ -1,5 +1,5 @@
 ---
-title: React 学习笔记（三）：Getting Started
+title: React 学习笔记（二）：Getting Started
 date: 2014-11-14
 ---
 
@@ -39,9 +39,10 @@ react-0.12.0
     └── transitions
 ```
 
-那么我们先来写一个 Hello World 吧，在 react-0.12.0 目录下创建一个 `helloworld.html` 文件（以下所有代码均可以在 [learning-react] 中找到）：
+那么我们先来写一个 Hello World 吧，在 react-0.12.0 目录下创建一个 `helloworld.html` 文件：
 
 ```html
+<!-- helloworld.html -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -60,7 +61,7 @@ react-0.12.0
 </html>
 ```
 
-之前已经了解了 JSX，这里可以看到写了 JSX 的 `script` 标签设置了 `type="text/jsx"` 了，这个的目的就是告诉浏览器，此标签内的内容需要用 `JSXTransformer.js` 才能解析。
+之前已经了解了 JSX，这里可以看到写了 JSX 的 `script` 标签设置了 `type="text/jsx"` 了，这个的目的就是告诉浏览器，此标签内的内容需要用 JSXTransformer 才能解析。
 
 HTML 和 js 分离
 ---
@@ -68,19 +69,18 @@ HTML 和 js 分离
 当然 js 是可以和 HTML 分离的，创建一个 `src/helloworld.js` 吧：
 
 ```js
+// src/helloworld.js
 React.render(
   <h1>Hello, world!</h1>,
   document.getElementById('example')
 );
 ```
 
-然后把 `helloworld.html` 中的 `script` 标签改为：
+然后把 `helloworld.html` 中的 `script` 标签改为以下即可：
 
 ```html
 <script type="text/jsx" src="src/helloworld.js"></script>
 ```
-
-刷新下浏览器，果然可以。
 
 预编译
 ---
@@ -110,9 +110,10 @@ React.render(
 );
 ```
 
-当然，我们的 `helloworld.html` 就再也不需要 `JSXTransformer` 了，`script` 标签也不需要 `type="text/jsx"` 了。
+当然，我们的 `helloworld.html` 就再也不需要 JSXTransformer 了，`script` 标签也不需要 `type="text/jsx"` 了。
 
 ```html
+<!-- helloworld.html -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -132,7 +133,7 @@ CommonJS 版本的 React
 
 想使用 CommonJS 版本的 React，使用 [react npm package] 即可。并且 JSX 编译工具还支持编译成其他类型的模块（支持哪些呢<sup>？</sup>）。
 
-下一步可以学习 [Tutorial]，或把 `examples` 目录下的例子多看看。
+`examples` 目录下还有很多例子，感兴趣可以都看看。
 
 小结
 ---
