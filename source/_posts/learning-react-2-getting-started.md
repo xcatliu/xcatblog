@@ -128,6 +128,10 @@ React.render(
 </html>
 ```
 
+虽然这个例子比较简单，不过我还是创建了一个 JSFiddle，大家可以看看效果：
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/omhnpx7q/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 CommonJS 版本的 React
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: React 学习笔记（三）：Tutorial
-date: 2014-11-15
+date: 2014-11-16
 ---
 
 这一节中，我们将通过一个完整的例子，实现一个简单的评论系统。
@@ -28,21 +28,20 @@ date: 2014-11-15
 ```html
 <!-- tutorial.html -->
 <html>
-    <head>
-        <title>Hello React</title>
-        <script src="js/react.js"></script>
-        <script src="js/JSXTransformer.js"></script>
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/showdown.min.js"></script>
-    </head>
-    <body>
-        <div id="content"></div>
-        <script type="text/jsx" src="js/tutorial.js"></script>
-    </body>
+  <head>
+    <title>Hello React</title>
+    <script src="http://fb.me/react-0.12.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx" src="js/tutorial.js"></script>
+  </body>
 </html>
 ```
 
-这里，我们需要用到 `jQuery` 实现 Ajax，需要用到 `showdown` 实现解析 Markdown。
+这里，我们需要用到 `jQuery` 实现发送 Ajax 请求。
 
 ```js
 // js/tutorial.js
@@ -50,7 +49,40 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        Hello, world! I am a CommentBox.
+        <h1>Comments</h1>
+        <CommentList />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+var CommentList = React.createClass({
+  render: function() {
+    return (
+      <div className="commentList">
+        <Comment author="Pete Hunt">This is one comment</Comment>
+        <Comment author="Jordan Walke">This is *another* comment</Comment>
+      </div>
+    );
+  }
+});
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      <div className="commentForm">
+        Hello, world! I am a CommentForm.
+      </div>
+    );
+  }
+});
+var Comment = React.createClass({
+  render: function() {
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        {this.props.children}
       </div>
     );
   }
@@ -61,10 +93,94 @@ React.render(
 );
 ```
 
+以上创建了一个无交互的 html 页面，可以看到，组件之间需要引用时，不需要按照先定义后引用的顺序。
+
+我们在使用 JSX 的时候，无需担心 JSX 中的变量解析出来的时候会生成 html 标签，因为 React 已经将标签都转义了，这也是有效防止 XSS 攻击的手段。
+
+我们可以看看 JSFiddle 中的效果：
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/45t3zbh7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+`this.props.children` 可以获取到引用组件时组件的内容。
+
+添加 Markdown 支持
+---
+
+为了添加 Markdown 支持，我们需要引入 Showdown 库：
+
+```html
+<!-- tutorial.html -->
+<html>
+  <head>
+    <title>Hello React</title>
+    <script src="http://fb.me/react-0.12.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx" src="js/tutorial.js"></script>
+  </body>
+</html>
+```
+
+相应的 `Comment` 也要改过来：
+
+```js
+var converter = new Showdown.converter();
+var Comment = React.createClass({
+  render: function() {
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        {converter.makeHtml(this.props.children.toString())}
+      </div>
+    );
+  }
+});
+```
+
+但是我们发现，html 内容被转义了：
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/k81canab/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+要让 html 能正确的显示出来，需要做如下改动：
+
+```js
+var converter = new Showdown.converter();
+var Comment = React.createClass({
+  render: function() {
+    var rawMarkup = converter.makeHtml(this.props.children.toString());
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
+      </div>
+    );
+  }
+});
+```
+
+Demo 如下：
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/6oyuu35w/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+我们可以看到，已经能够正常的显示 html 了。
+
+看来 `__html` 是 `dangerouslySetInnerHTML` 必须传入的属性了。
+
 小结
 ---
 
 - 组件之间需要引用时，不需要按照先定义后引用的顺序
+- 在使用 JSX 的时候，React 会转义 html 标签以防止 XSS 攻击
+- `this.props.children` 可以获取到引用组件时组件的内容
+- 使用 `dangerouslySetInnerHTML` 的 `__html` 属性来输出 html
 
 Links
 ---
