@@ -150,6 +150,20 @@ var Comment = React.createClass({
 要让 html 能正确的显示出来，需要做如下改动：
 
 ```js
+var converter = new Showdown.converter();
+var Comment = React.createClass({
+  render: function() {
+    var rawMarkup = converter.makeHtml(this.props.children.toString());
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        <span dangerouslySetInnerHTML={{__html: rawMarkup} } />
+      </div>
+    );
+  }
+});
 ```
 
 Demo 如下：
