@@ -174,6 +174,47 @@ Demo 如下：
 
 看来 `__html` 是 `dangerouslySetInnerHTML` 必须传入的属性了。
 
+绑定数据
+---
+
+下面要做的就是把 object 数据在其中：
+
+```js
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.props.data} />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function (comment) {
+      return (
+        <Comment author={comment.author}>
+          {comment.text}
+        </Comment>
+      );
+    });
+    return (
+      <div className="commentList">
+        {commentNodes}
+      </div>
+    );
+  }
+});
+React.render(
+  <CommentBox data={data} />,
+  document.getElementById('content')
+);
+```
+
+Demo 如下：
+
 小结
 ---
 
@@ -181,6 +222,7 @@ Demo 如下：
 - 在使用 JSX 的时候，React 会转义 html 标签以防止 XSS 攻击
 - `this.props.children` 可以获取到引用组件时组件的内容
 - 使用 `dangerouslySetInnerHTML` 的 `__html` 属性来输出 html
+- `{}` 中的内容会当作 `js` 执行，所以 `{{a:b}}` 就是一个 `object`
 
 Links
 ---
