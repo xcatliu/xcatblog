@@ -149,6 +149,7 @@ var Comment = React.createClass({
 
 要让 html 能正确的显示出来，需要做如下改动：
 
+{% raw %}
 ```js
 var converter = new Showdown.converter();
 var Comment = React.createClass({
@@ -159,12 +160,13 @@ var Comment = React.createClass({
         <h2 className="commentAuthor">
           {this.props.author}
         </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup} } />
+        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
       </div>
     );
   }
 });
 ```
+{% endraw %}
 
 Demo 如下：
 
@@ -177,9 +179,13 @@ Demo 如下：
 绑定数据
 ---
 
-下面要做的就是把 object 数据在其中：
+下面要做的就是把数据融入渲染的过程中：
 
 ```js
+var data = [
+  {author: "Pete Hunt", text: "This is one comment"},
+  {author: "Jordan Walke", text: "This is *another* comment"}
+];
 var CommentBox = React.createClass({
   render: function() {
     return (
@@ -215,8 +221,14 @@ React.render(
 
 Demo 如下：
 
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/0f6dk9ff/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+`data` 从 `CommentBox` 传到了 `CommentList` 中，不禁想到，如果遇到复杂的业务场景，会不会一级一级的传下去导致维护困难呢<sup>？</sup>
+
 从服务器获取评论
 ---
+
+
 
 小结
 ---
@@ -225,7 +237,9 @@ Demo 如下：
 - 在使用 JSX 的时候，React 会转义 html 标签以防止 XSS 攻击
 - `this.props.children` 可以获取到引用组件时组件的内容
 - 使用 `dangerouslySetInnerHTML` 的 `__html` 属性来输出 html
+{% raw %}
 - `{}` 中的内容会当作 `js` 执行，所以 `{{a:b}}` 就是一个 `object`
+{% endraw %}
 
 Links
 ---
