@@ -55,7 +55,7 @@ date: 2014-11-19
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/0f6dk9ff/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-`data` 从 `CommentBox` 传到了 `CommentList` 中，不禁想到，如果遇到复杂的业务场景，会不会一级一级的传下去导致维护困难呢<sup>？</sup>
+`data` 从 `CommentBox` 传到了 `CommentList` 中，不禁想到，如果遇到复杂的业务场景，会不会一级一级的传下去导致维护困难呢<sup>?</sup>
 
 从服务器获取评论
 ---
@@ -89,9 +89,9 @@ componentDidMount 方法是 react 内置的方法，它会在组件 render 完�
 
 至此，我们已经学习了 react 的核心方法，它就是靠这么几个简单的 api，支撑起了强大的功能。再复习一下它的三个特点：
 
-1. Just the UI
-2. Virtual DOM
-3. Data Flow
+1. **Just the UI**
+2. **Virtual DOM**
+3. **Data Flow**
 
 小结
 ---

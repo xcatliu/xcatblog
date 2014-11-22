@@ -135,7 +135,7 @@ React.render(
 CommonJS 版本的 React
 ---
 
-想使用 CommonJS 版本的 React，使用 [react npm package] 即可。并且 JSX 编译工具还支持编译成其他类型的模块（支持哪些呢<sup>？</sup>）。
+想使用 CommonJS 版本的 React，使用 [react npm package] 即可。并且 JSX 编译工具还支持编译成其他类型的模块（支持哪些呢<sup>?</sup>）。
 
 `examples` 目录下还有很多例子，感兴趣可以都看看。
 

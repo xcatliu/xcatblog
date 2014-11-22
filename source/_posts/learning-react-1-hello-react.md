@@ -10,9 +10,9 @@ React 是一个用于构建 UI 的 JavaScript 库，已经应用于 Facebook 和
 
 用官方的描述，React 有三大特性：
 
-1. Just the UI
-2. Virtual DOM
-3. Data Flow
+1. **Just the UI**
+2. **Virtual DOM**
+3. **Data Flow**
 
 ### Just the UI
 
@@ -20,11 +20,11 @@ React 只涉及 UI 层，也可以说是 MVC 中的 V。由于 React 只涉及 U
 
 ### Virtual DOM
 
-React 内部维护了一个*虚拟的 DOM 树*，每次更新 UI 的时候，都会在内部计算出性能最高（步骤最少<sup>？</sup>）的方法去更新文档。当然也可以运行在服务器端。
+React 内部维护了一个*虚拟的 DOM 树*，每次更新 UI 的时候，都会在内部计算出性能最高（步骤最少<sup>?</sup>）的方法去更新文档。当然也可以运行在服务器端。
 
 ### Data Flow
 
-React 实现了不同于数据绑定的数据流——单向反应性数据流<sup>？</sup>（one-way reactive data flow）
+React 实现了不同于数据绑定的数据流——单向反应性数据流<sup>?</sup>（one-way reactive data flow）
 
 以上描述可能有一些没能理解，下面我们就来看看几个例子吧。
 
@@ -62,7 +62,7 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 
 这个例子中，`state` 是一个对象，看上去 `getInitialState` 相当于 `state` 的初始化，初始值是 `{secondsElapsed: 0}`。
 
-然后在 `render` 中，会将 `this.state.secondsElapsed` 显示出来，但是没有看到其他地方调用 `componentDidMount` 呢，难道说 `componentDidMount` 也是 React 内置的一个 api 吗<a id="componentDidMount"></a><sup>[？](/blog/learning-react-3-tutorial.html#componentDidMount)</sup>`componentWillUnmount` 又会什么时候被调用吗？
+然后在 `render` 中，会将 `this.state.secondsElapsed` 显示出来，但是没有看到其他地方调用 `componentDidMount` 呢，难道说 `componentDidMount` 也是 React 内置的一个 api 吗<a id="componentDidMount"></a><sup>[?](/blog/learning-react-3-tutorial.html#componentDidMount)</sup>`componentWillUnmount` 又会什么时候被调用吗？
 
 此处没有给出解答，那我们就带着疑问继续学习吧。
 
@@ -90,7 +90,7 @@ React 拓展性很强，可以与其他库或框架结合的很好，下面是�
 
 - React 使用 `chassName` 来给一个 DOM 节点添加 `class`？
 - 使用 `refs` 来获取 DOM 节点吗？
-- `dangerouslySetInnerHTML` 的作用是什么，`__html` 是必须的吗<a id="dangerouslySetInnerHTML"></a><sup>[？](http://xcatliu.com/blog/learning-react-3-tutorail.html#dangerouslySetInnerHTML)</sup>
+- `dangerouslySetInnerHTML` 的作用是什么，`__html` 是必须的吗<a id="dangerouslySetInnerHTML"></a><sup>[?](http://xcatliu.com/blog/learning-react-3-tutorial.html#dangerouslySetInnerHTML)</sup>
 
 相信在后面的文档会对这些做出解释。
 
@@ -99,7 +99,7 @@ React 拓展性很强，可以与其他库或框架结合的很好，下面是�
 
 - React 只涉及 UI 层
 - React 内部维护了一个*虚拟的 DOM 树*
-- React 实现了单向反应性数据流<sup>？</sup>
+- React 实现了单向反应性数据流
 - 使用 React 开发时，可以使用 JSX 的语法，简化了代码
 - 使用 JSX 需要引入 JSXTransformer，然而在生产环境需要转化成 js
 - `{this.props}` 用来获取传入组件的参数
