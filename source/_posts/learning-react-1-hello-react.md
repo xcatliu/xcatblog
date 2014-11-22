@@ -90,8 +90,7 @@ React 拓展性很强，可以与其他库或框架结合的很好，下面是�
 
 - React 使用 `chassName` 来给一个 DOM 节点添加 `class`？
 - 使用 `refs` 来获取 DOM 节点吗？
-- `dangerouslySetInnerHTML` 的作用是什么？
-- `__html` 是必须的吗？
+- `dangerouslySetInnerHTML` 的作用是什么，`__html` 是必须的吗<a id="dangerouslySetInnerHTML"></a><sup>[？](http://xcatliu.com/blog/learning-react-3-tutorail.html#dangerouslySetInnerHTML)</sup>
 
 相信在后面的文档会对这些做出解释。
 
