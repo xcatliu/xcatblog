@@ -27,6 +27,7 @@ date: 2014-11-08
 - [React 学习笔记（二）：Getting Started](http://xcatliu.com/blog/learning-react-2-getting-started.html)
 - [React 学习笔记（三）：Tutorial](http://xcatliu.com/blog/learning-react-3-tutorial.html)
 - [React 学习笔记（四）：Thinking in react](http://xcatliu.com/blog/thinking-in-react.html)
+- 撰写中...
 
 应用篇
 ---
