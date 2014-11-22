@@ -62,7 +62,7 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 
 这个例子中，`state` 是一个对象，看上去 `getInitialState` 相当于 `state` 的初始化，初始值是 `{secondsElapsed: 0}`。
 
-然后在 `render` 中，会将 `this.state.secondsElapsed` 显示出来，但是没有看到其他地方调用 `componentDidMount` 呢，难道说 `componentDidMount` 也是 React 内置的一个 api 吗？`componentWillUnmount` 又会什么时候被调用吗？
+然后在 `render` 中，会将 `this.state.secondsElapsed` 显示出来，但是没有看到其他地方调用 `componentDidMount` 呢，难道说 `componentDidMount` 也是 React 内置的一个 api 吗<a id="componentDidMount"></a><sup>[？](/blog/learning-react-3-tutorial.html#componentDidMount)</sup>`componentWillUnmount` 又会什么时候被调用吗？
 
 此处没有给出解答，那我们就带着疑问继续学习吧。
 

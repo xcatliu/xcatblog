@@ -9,6 +9,7 @@ date: 2014-11-08
 - 本系列是我学习 React 的笔记，也可以作为学习 React 的教程，与大家分享
 - 本系列取材自 React [官方网站][React Index]，内容稍有变化，大多是加上了自己的感想，以及去掉了一些重复的部分
 - 本系列出现的代码均可以在 [learning-react] 中找到，而且大多数都有 JSFiddle demo，方便我们查看效果
+- JSFiddle demo 可能需要翻墙，原因是引用了 fb.me 或 fbcdn.net 的代码
 - 每节的 Links 中可以找到本节的出处
 - <sup>？</sup>表示存疑的部分，欢迎大家给出解释
 - 适用的 React 版本：0.12.0

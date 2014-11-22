@@ -179,7 +179,7 @@ Demo 如下：
 绑定数据
 ---
 
-下面要做的就是把数据融入渲染的过程中：
+下面要做的就是把数据融入渲染的过程中，我们先用一个人造的数据入手：
 
 ```js
 var data = [
@@ -228,7 +228,152 @@ Demo 如下：
 从服务器获取评论
 ---
 
+下一步就是把人造的数据用服务器的数据替换掉：
 
+```js
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.state.data} />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+React.render(
+  <CommentBox url="comments.json" pollInterval={2000} />,
+  document.getElementById('content')
+);
+```
+
+想要实时更新 UI，我们可以用 `state` 来存储数据，每次 `state` 改变的时候，都会重新调用一次 `render`，`state` 的改变需要调用 `this.getState` 方法（而不是给 `this.state` 赋值）。
+
+componentDidMount 方法是 react 内置的方法，它会在组件 render 完成后被调用。总算解开了之前的<a id="componentDidMount"></a>[疑问](/blog/learning-react-1-hello-react.html#componentDidMount)。
+
+这个例子中，我们的实现实时更新的方式是每两秒向服务器发送一个请求获取评论数据，这种方式的优点是简单易理解，此处只是作为例子使用。在实际项目中应该会使用其他保持长连接的方式（WebSocket 等）。
+
+Demo 如下：
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/8ywLhrub/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+发送到 `/echo/json` 来模拟 Ajax 请求
+
+提交评论
+---
+
+接下来需要实现评论功能了：
+
+```js
+var CommentForm = React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var author = this.refs.author.getDOMNode().value.trim();
+    var text = this.refs.text.getDOMNode().value.trim();
+    if (!text || !author) {
+      return;
+    }
+    this.props.onCommentSubmit({author: author, text: text});
+    this.refs.author.getDOMNode().value = '';
+    this.refs.text.getDOMNode().value = '';
+    return;
+  },
+  render: function() {
+    return (
+      <form className="commentForm" onSubmit={this.handleSubmit}>
+        <input type="text" placeholder="Your name" ref="author" />
+        <input type="text" placeholder="Say something..." ref="text" />
+        <input type="submit" value="Post" />
+      </form>
+    );
+  }
+});
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleCommentSubmit: function(comment) {
+    var comments = this.state.data;
+    var newComments = comments.concat([comment]);
+    this.setState({data: newComments});
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: comment,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.state.data} />
+        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+      </div>
+    );
+  }
+});
+```
+
+首先，我们给评论表单添加了一个 `onSubmit` 事件，然后在 `this.handleSubmit` 中对它进行监听，阻止默认事件，检测非法值，清空表单，然后把数据传递给传入 `CommentForm` 的参数 `onCommentSubmit`。
+
+`CommentBox` 监听到了 `onCommentSubmit` 事件之后，会调用 `handleCommentSubmit`，为了提高用户体验，我们在数据真正提交之前就已经显示在评论中了。
+
+在 `props` 中传递函数，是实现事件监听的常用方法。
+
+Demo 如下：
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/kw0ge8nf/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+由于请求的数据始终没有变，所以提交之后下次刷新就会恢复成只有一条评论的状态了。
+
+至此，我们已经学习了 react 的核心方法，它就是靠这么几个简单的 api，支撑起了强大的功能。再复习一下它的三个特点：
+
+1. Just the UI
+2. Virtual DOM
+3. Data Flow
 
 小结
 ---
@@ -240,6 +385,9 @@ Demo 如下：
 {% raw %}
 - `{}` 中的内容会当作 `js` 执行，所以 `{{a:b}}` 就是一个 `object`
 {% endraw %}
+- `props` 是不可改变的，`state` 是可改变的
+- 改变 `state` 使用 `this.setState({data: xxx})` 方法，而不是 `this.state.data = xxx`
+- 在 `props` 中传递函数，是实现事件监听的常用方法
 
 Links
 ---
