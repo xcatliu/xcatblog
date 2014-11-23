@@ -33,7 +33,7 @@ React 实现了不同于数据绑定的数据流——单向反应性数据流<s
 
 下面使用 React 来构建一个简单的组件。
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/9wre9yj7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="200" src="http://jsfiddle.net/xcatliu/9wre9yj7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 React 使用 `React.createClass` 创建一个组件，然后使用 `React.render` 渲染到 DOM 节点上，让人眼前一亮的是，直接在 js 里面使用了没有带引号的 html 标签。
 
@@ -49,14 +49,14 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 
 其中 JSXTransformer 即是使浏览器支持 JSX 的关键所在。但是在生产环境中，我们应该使用 React 提供的转换工具，[react-tools]，将 JSX 转换成 js，转换后的结果如下：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/65ycmb0L/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="200" src="http://jsfiddle.net/xcatliu/65ycmb0L/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 运用状态的组件
 ---
 
 接着来实现一个简单的计时器：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/cbprgdyj/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="http://jsfiddle.net/xcatliu/cbprgdyj/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 通常，`{this.props}` 用来获取传入组件的参数，`{this.state}` 则用来管理组件内部的状态。状态的改变将触发 `render` 的调用，从而改变 UI。
 
@@ -71,7 +71,7 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 
 运用 `props` 和 `state`，我们来实现一个简单的 TODO 应用：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/fecjzL92/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://jsfiddle.net/xcatliu/fecjzL92/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 这个例子中，我们使用 `state` 来管理 TODO items 和用户输入的内容，可以明显的看出来，它和 MVVM 框架的双向绑定不同，需要我们手动添加 `onChange` 和 `onSubmit` 事件，并且需要手动调用 `setState` 来更新状态。
 
@@ -84,7 +84,7 @@ JSX 本来是无法被浏览器解析的，在这个例子中，我们引入了�
 
 React 拓展性很强，可以与其他库或框架结合的很好，下面是一个 Markdown 编辑器的例子：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/nha9zpq8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="550" src="http://jsfiddle.net/xcatliu/nha9zpq8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 `Showdown` 是一个解析 Markdown 的库，我们看到在 `render` 里面，也可以直接使用到外部定义的变量，不过有几个疑点还需要解释：
 

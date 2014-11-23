@@ -25,7 +25,7 @@ date: 2014-11-19
 
 根据这个结构，我们可以先将其用 React 实现出来：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/45t3zbh7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://jsfiddle.net/xcatliu/45t3zbh7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 以上创建了一个无交互的 html 页面，可以看到，组件之间需要引用时，不需要按照先定义后引用的顺序。
 
@@ -38,11 +38,11 @@ date: 2014-11-19
 
 为了添加 Markdown 支持，我们需要引入 Showdown 库，相应的 `Comment` 也要改过来，但是我们发现，html 内容被转义了：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/k81canab/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://jsfiddle.net/xcatliu/k81canab/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 要让 html 能正确的显示出来，需要使用 `dangerouslySetInnerHTML`：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/6oyuu35w/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://jsfiddle.net/xcatliu/6oyuu35w/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 我们可以看到，已经能够正常的显示 html 了。
 
@@ -62,7 +62,7 @@ date: 2014-11-19
 
 下一步就是把人造的数据用服务器的数据替换掉：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/8ywLhrub/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://jsfiddle.net/xcatliu/8ywLhrub/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 想要实时更新 UI，我们可以用 `state` 来存储数据，每次 `state` 改变的时候，都会重新调用一次 `render`，`state` 的改变需要调用 `this.getState` 方法（而不是给 `this.state` 赋值）。
 
@@ -77,7 +77,7 @@ componentDidMount 方法是 react 内置的方法，它会在组件 render 完�
 
 接下来需要实现评论功能了：
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/xcatliu/kw0ge8nf/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="600" src="http://jsfiddle.net/xcatliu/kw0ge8nf/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 首先，我们给评论表单添加了一个 `onSubmit` 事件，然后在 `this.handleSubmit` 中对它进行监听，阻止默认事件，检测非法值，清空表单，然后把数据传递给传入 `CommentForm` 的参数 `onCommentSubmit`。
 
