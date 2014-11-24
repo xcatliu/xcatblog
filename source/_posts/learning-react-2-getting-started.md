@@ -12,7 +12,7 @@ Hello World
 
 下载解压完成后，可以看到目录结构如下（第三层太多了，就不打印出来了）：
 
-```shell
+```nohighlight
 $ tree -L 2 react-0.12.0
 react-0.12.0
 ├── README.md
@@ -68,7 +68,7 @@ HTML 和 js 分离
 
 当然 js 是可以和 HTML 分离的，创建一个 `src/helloworld.js` 吧：
 
-```js
+```javascript
 // src/helloworld.js
 React.render(
   <h1>Hello, world!</h1>,
@@ -89,13 +89,13 @@ React.render(
 
 首先需要安装 [react-tools]，安装方法如下（当然需要能使用 npm）：
 
-```shell
+```bash
 npm install -g react-tools
 ```
 
 然后使用以下命令将 `src/helloworld.js` 编译到 `build/helloworld.js` 中：
 
-```shell
+```bash
 jsx --watch src/ build/
 ```
 
@@ -103,7 +103,7 @@ jsx --watch src/ build/
 
 编译完之后，`build/helloworld.js` 内容就是这样了：
 
-```js
+```javascript
 React.render(
   React.createElement('h1', null, 'Hello, world!'),
   document.getElementById('example')
