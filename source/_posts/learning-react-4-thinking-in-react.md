@@ -1,8 +1,6 @@
 ---
 title: React 学习笔记（四）：Thinking in React
 date: 2014-11-23
-preview: learning-react-3-tutorial
-next: learning-react-5
 ---
 
 这一节中，主要讲讲使用 React 开发一个组件的思路。
