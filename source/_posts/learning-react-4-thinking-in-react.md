@@ -19,7 +19,7 @@ date: 2014-11-23
   {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
   {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
   {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
-];
+]
 ```
 
 ### 第一步：拆分为小组件
@@ -28,9 +28,17 @@ date: 2014-11-23
 
 拿到设计稿和后端数据之后要做的第一件事，就是拆分组件，尽可能按照 UI 上的层级拆分，拆分完成后，我们会发现 UI 层级和组件层级是相互对应的。
 
+- FilterableProductTable
+  - SearchBar
+  - ProductTable
+    - ProductCategoryRow
+    - ProductRow
+
 ### 第二步：开发一个静态版本
 
+<iframe width="100%" height="300" src="http://jsfiddle.net/reactjs/yun1vgqb/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
+开发静态版本
 
 ### 第三步：分析需要的最少量 state
 
