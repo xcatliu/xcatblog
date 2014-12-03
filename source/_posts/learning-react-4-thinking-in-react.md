@@ -38,7 +38,7 @@ date: 2014-11-23
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/reactjs/yun1vgqb/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-开发静态版本
+开发静态版本需要注意的是，**不要用 state**，只需要用 props 来传递参数，此时单向数据流的优势就体现出来的，数据的流动非常清晰，也是按照层级的关系来流动的。
 
 ### 第三步：分析需要的最少量 state
 
