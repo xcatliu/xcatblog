@@ -62,6 +62,12 @@ date: 2014-11-23
 
 ### 第四步：分析 state 需要放到哪个组件中
 
+<iframe width="100%" height="300" src="http://jsfiddle.net/reactjs/zafjbw1e/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+这一步往往是对初学者来说最富有挑战性的一步了，针对每一个 state，我们可以按照以下步骤进行：
+
+- 
+
 ### 第五步：构建数据流
 
 小结
