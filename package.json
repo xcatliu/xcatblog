@@ -1,0 +1,29 @@
+{
+  "name": "xcatliu.com",
+  "version": "1.0.0",
+  "description": "All About XcatLiu",
+  "main": "index.js",
+  "scripts": {
+    "server": "node --harmony server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xcatliu/xcatliu.com.git"
+  },
+  "keywords": [
+    "xcatliu",
+    "blog"
+  ],
+  "author": "xcatliu <xcatliu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xcatliu/xcatliu.com/issues"
+  },
+  "homepage": "https://github.com/xcatliu/xcatliu.com",
+  "dependencies": {
+    "koa": "^0.13.0"
+  },
+  "config": {
+    "PORT": 8000
+  }
+}
