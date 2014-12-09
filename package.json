@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/xcatliu/xcatliu.com",
   "dependencies": {
-    "koa": "^0.13.0"
+    "koa": "^0.13.0",
+    "koa-router": "^3.7.0"
   },
   "config": {
-    "PORT": 8000
+    "PORT": 8000,
+    "PORT_API": 8100
   }
 }
