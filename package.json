@@ -1,25 +1,25 @@
 {
   "name": "xcatliu.com",
   "version": "1.0.0",
-  "description": "All About XcatLiu",
+  "description": "The fastest blog system in the world",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony server/index.js"
+    "start": "node --harmony server"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xcatliu/xcatliu.com.git"
+    "url": "https://github.com/xcatliu/xcat.git"
   },
   "keywords": [
-    "xcatliu",
+    "xcat",
     "blog"
   ],
-  "author": "xcatliu <xcatliu@gmail.com>",
+  "author": "xcatliu <xcatliu@gmail.com> (http://xcatliu.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xcatliu/xcatliu.com/issues"
+    "url": "https://github.com/xcatliu/xcat/issues"
   },
-  "homepage": "https://github.com/xcatliu/xcatliu.com",
+  "homepage": "https://github.com/xcatliu/xcat",
   "engines": {
     "node": ">= 0.11.13"
   },

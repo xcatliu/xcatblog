@@ -11,16 +11,23 @@ The entrance is [api.xcatliu.com], which use [api.github.com] as a standard. But
 - As a mostly static website, we only accept `GET` method
 - Do not have OAuth implement
 - Use `http` protocol instead of `https`
-- In order to achieve maximum performance, all API have an one-hour-cache
 - As you can see, pretty simple
 
 Table of Contents
 ---
 
+- Root
 - Posts
 - Categories
 - Tags
 - 404
+
+Root
+---
+
+```
+GET /
+```
 
 Posts
 ---

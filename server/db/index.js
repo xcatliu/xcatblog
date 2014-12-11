@@ -1,8 +1,8 @@
-var parsePost = require('./parsePost');
 var fs = require('fs');
 var path = require('path');
 var watch = require('watch');
 var _ = require('lodash');
+var parsePost = require('./parsePost');
 
 module.exports = function() {
   watch.watchTree(this.config.posts_dir, initDb.bind(this));
@@ -13,6 +13,7 @@ function initDb() {
   var posts_dir = this.config.posts_dir;
   var postsFileNames = fs.readdirSync(posts_dir);
   var posts = postsFileNames.filter(function(fileName) {
+    // filter dot files
     return fileName.indexOf('.') !== 0;
   }).map(function(fileName) {
     var fileContent = fs.readFileSync(path.join(posts_dir, fileName)).toString();

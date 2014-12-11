@@ -1,6 +1,6 @@
-var matchFrontMatter = /---\n([\s\S]*?)\n---\n([\s\S]*)/;
 var yaml = require('js-yaml');
 var _ = require('lodash');
+var matchFrontMatter = /---\n([\s\S]*?)\n---\n([\s\S]*)/;
 
 // https://github.com/isagalaev/highlight.js/issues/578
 var marked = require('marked');
