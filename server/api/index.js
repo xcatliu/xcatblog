@@ -15,10 +15,9 @@ module.exports = function() {
     this.body = JSON.stringify(entrance, null, 2);
   });
 
-  var posts = require('./posts').call(this);
+  app.get('/posts', require('./posts').call(this));
 
-  app.get('/posts', posts);
-  app.get('/posts/:id', posts);
+  app.get('/posts/:id', require('./posts/post').call(this));
 
   app.listen(config.port_api);
 };

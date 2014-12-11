@@ -10,8 +10,7 @@ var context = {
   config: config
 };
 
-var db = require('./db');
-var api = require('./api')
+require('./db').call(context);
 
-db.call(context);
-api.call(context);
+require('./www').call(context);
+require('./api').call(context);
