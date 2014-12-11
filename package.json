@@ -4,7 +4,7 @@
   "description": "All About XcatLiu",
   "main": "index.js",
   "scripts": {
-    "server": "node --harmony server/index.js"
+    "start": "node --harmony server/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
     "url": "https://github.com/xcatliu/xcatliu.com/issues"
   },
   "homepage": "https://github.com/xcatliu/xcatliu.com",
+  "engines": {
+    "node": ">= 0.11.13"
+  },
   "dependencies": {
     "koa": "^0.13.0",
     "koa-router": "^3.7.0",

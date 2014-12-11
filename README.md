@@ -27,7 +27,9 @@ Links
 - [xcatliu.com]
 - [XcatLiu API]
 - [posts]
+- [dropbox linux installation]
 
 [xcatliu.com]: http://xcatliu.com
 [XcatLiu API]: https://github.com/xcatliu/xcatliu.com/tree/master/server/api
 [posts]: https://github.com/xcatliu/xcatliu.com/tree/master/posts
+[dropbox linux installation]: https://www.dropbox.com/install?os=lnx
