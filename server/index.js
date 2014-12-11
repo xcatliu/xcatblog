@@ -4,8 +4,8 @@ var config = require('../config.json');
 var api = require('./api')
 
 var context = {
-  config: config,
-  db: db()
+  config: config
 };
 
+db.call(context);
 api.call(context);

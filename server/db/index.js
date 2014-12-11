@@ -1,14 +1,30 @@
 var parsePost = require('./parsePost');
 var fs = require('fs');
+var path = require('path');
+var watch = require('watch');
+var _ = require('lodash');
 
 module.exports = function() {
-  return {
-    posts: [{
-      url: 'http://api.xcatliu.com/posts/first-post',
-      title: 'First Post',
-      date: '2014-12-14',
-      html_url: 'http://xcatliu.com/posts/first-post.html',
-      content: '# Title\n\nContent'
-    }]
-  };
+  watch.watchTree(this.config.posts_dir, initDb.bind(this));
 };
+
+function initDb() {
+  var config = this.config;
+  var posts_dir = this.config.posts_dir;
+  var postsFileNames = fs.readdirSync(posts_dir);
+  var posts = postsFileNames.filter(function(fileName) {
+    return fileName.indexOf('.') !== 0;
+  }).map(function(fileName) {
+    var fileContent = fs.readFileSync(path.join(posts_dir, fileName)).toString();
+    var id = path.basename(fileName, '.md');
+    return _.merge({
+      id: id,
+      url: config.site_url_api + '/posts/' + id,
+      html_url: config.site_url + '/posts/' + id + '.html'
+    }, parsePost(fileContent));
+  });
+  this.db = {
+    version: Date.now(),
+    posts: posts
+  };
+}

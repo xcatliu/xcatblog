@@ -1,4 +1,7 @@
 {
-  "PORT": 8000,
-  "PORT_API": 8100
+  "port": 8000,
+  "port_api": 8100,
+  "site_url": "http://xcatliu.com",
+  "site_url_api": "http://api.xcatliu.com",
+  "posts_dir": "/Users/liuyicheng/Dropbox/posts"
 }
