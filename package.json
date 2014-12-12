@@ -1,7 +1,7 @@
 {
   "name": "xcatliu.com",
   "version": "1.0.0",
-  "description": "The fastest blog system in the world",
+  "description": "Maybe the fastest blog system in the world",
   "main": "index.js",
   "scripts": {
     "start": "node --harmony server"
