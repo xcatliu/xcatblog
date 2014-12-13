@@ -32,3 +32,6 @@ require('./www').call(context);
 
 // Starting the api server, default port is 8100
 require('./api').call(context);
+
+// Starting the img server, default port is 8200
+require('./img').call(context);

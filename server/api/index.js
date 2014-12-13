@@ -25,5 +25,5 @@ module.exports = function() {
     });
   }));
 
-  app.listen(config.port_api || 8100);
+  app.listen(config.api_port || 8100);
 };

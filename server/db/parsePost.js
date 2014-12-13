@@ -30,8 +30,8 @@ module.exports = function(fileName) {
   var fileContent = fs.readFileSync(path.join(config.posts_dir, fileName)).toString();
   // `fileName` is `id`
   var id = path.basename(fileName, '.md');
-  var url = config.site_url_api + '/posts/' + id;
-  var html_url = config.site_url + '/posts/' + id + '.html';
+  var url = config.api_url + '/posts/' + id;
+  var html_url = config.url + '/posts/' + id + '.html';
   var frontMatter = {};
   var contentHTML = '';
   // RegExp is an error-prone area, so do it carefully
@@ -46,8 +46,8 @@ module.exports = function(fileName) {
   }
   return {
     id: id,
-    url: config.site_url_api + '/posts/' + id,
-    html_url: config.site_url + '/posts/' + id + '.html',
+    url: config.api_url + '/posts/' + id,
+    html_url: config.url + '/posts/' + id + '.html',
     frontMatter: frontMatter,
     contentHTML: contentHTML
   };

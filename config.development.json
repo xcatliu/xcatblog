@@ -1,7 +1,10 @@
 {
   "port": 8000,
-  "port_api": 8100,
-  "site_url": "http://localhost:8000",
-  "site_url_api": "http://localhost:8100",
+  "url": "http://localhost:8000",
+  "api_port": 8100,
+  "api_url": "http://localhost:8100",
+  "img_port": 8200,
+  "img_url": "http://localhost:8200",
+  "img_dir": "/Users/liuyicheng/Dropbox/img",
   "posts_dir": "/Users/liuyicheng/Dropbox/posts"
 }

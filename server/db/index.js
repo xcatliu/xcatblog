@@ -21,9 +21,9 @@ function initDb() {
     // `version` is necessary, for updating client-cache
     version: Date.now(),
     // Like GitHub API, providing every API url
-    posts_url: this.config.site_url_api + '/posts{/post_id}',
-    tags_url: this.config.site_url_api + '/tags{/tag_id}',
-    categories_url: this.config.site_url_api + '/categories{/category_id}'
+    posts_url: this.config.api_url + '/posts{/post_id}',
+    tags_url: this.config.api_url + '/tags{/tag_id}',
+    categories_url: this.config.api_url + '/categories{/category_id}'
   };
   // Get all posts first
   var posts = getPosts.call(this);

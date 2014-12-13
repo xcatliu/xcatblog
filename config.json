@@ -1,7 +1,10 @@
 {
   "port": 8000,
-  "port_api": 8100,
-  "site_url": "http://xcatliu.com",
-  "site_url_api": "http://api.xcatliu.com",
-  "posts_dir": "/home/xcatliu/Dropbox/posts"
+  "url": "http://xcatliu.com",
+  "api_port": 8100,
+  "api_url": "http://api.xcatliu.com",
+  "img_port": 8200,
+  "img_url": "http://img.xcatliu.com",
+  "img_dir": "/home/xcatliu/Dropbox/img",
+  "posts_dir": "/home/xcatliu/Dropbox/posts",
 }
