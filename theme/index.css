@@ -1,0 +1,122 @@
+/* normalize */
+
+body {
+  color: #333;
+  background: white;
+  font-size: 20px;
+  line-height: 1.8em;
+}
+
+body, ul, ol, figure, pre, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, textarea {
+  font-family: Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
+
+pre, code {
+  font-family: Courier, Courier New, monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+  font-weight: normal;
+  line-height: 1.8em;
+  margin: 1em 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.6em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5, h6 {
+  font-size: 1.2em;
+}
+
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: #5CC3A1;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1F9C73;
+  text-decoration: underline;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+
+/* layout */
+
+.whole {
+  max-width: 46em;
+  padding: 0.5em 1em;
+  margin: 0 auto;
+}
+
+
+/* header */
+
+.header {
+  background: #f8f8f8;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+}
+
+.header a {
+  margin: 0 0.5em;
+}
+.header a:last-child {
+  margin-right: 0;
+}
+.header a:first-child {
+  margin-left: 0;
+}
+
+
+/* footer */
+.footer {
+  text-align: center;
+  background: #F8F8F8;
+  color: #999;
+}
+

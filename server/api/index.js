@@ -1,5 +1,5 @@
 var koa = require('koa');
-var router = require('koa-router');
+var route = require('koa-route');
 var _ = require('lodash');
 
 module.exports = function() {
@@ -7,19 +7,21 @@ module.exports = function() {
   var config = this.config;
   var app = koa();
 
-  app.use(router(app));
-
-  app.get('/', function *() {
+  app.use(route.get('/', function *() {
     this.body = _.omit(context.db, 'posts');
-  });
+  }));
 
-  app.get('/posts', function *() {
-    this.body = context.db.posts;
-  });
+  app.use(route.get('/posts', function *() {
+    this.body = context.db.posts.map(function(post) {
+      return _.omit(post, 'contentHTML');
+    });
+  }));
 
-  app.get('/posts/:id', function *() {
-    this.body = context.db['posts/' + this.params.id];
-  });
+  app.use(route.get('/posts/:id', function *(id) {
+    this.body = context.db.posts.find(function(post) {
+      return post.id === id;
+    });
+  }));
 
   app.listen(config.port_api);
 };

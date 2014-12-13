@@ -14,12 +14,7 @@ function initDb() {
     posts_url: this.config.site_url_api + '/posts{/post_id}'
   };
   var posts = getPosts.call(this);
-  db.posts = posts.map(function(post) {
-    return _.omit(post, ['contentHTML']);
-  });
-  posts.forEach(function(post) {
-    db['posts/' + post.id] = post;
-  });
+  db.posts = posts;
   this.db = db;
 }
 
