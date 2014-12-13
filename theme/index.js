@@ -23,7 +23,9 @@ var Article = React.createClass({
 
 var Posts = React.createClass({
   render: function() {
-    var lis = this.props.db.posts.map(function(post) {
+    var lis = this.props.db.posts.filter(function(post) {
+      return typeof post.frontMatter.layout === 'undefined';
+    }).map(function(post) {
       return (
         <li><a href={post.html_url}>{post.frontMatter.title}</a></li>
       );

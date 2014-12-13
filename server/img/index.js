@@ -1,3 +1,5 @@
+// Just a static server
+
 var koa = require('koa');
 var static = require('koa-static');
 

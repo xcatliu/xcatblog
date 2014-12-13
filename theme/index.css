@@ -4,7 +4,7 @@ body {
   color: #333;
   background: white;
   font-size: 20px;
-  line-height: 1.8em;
+  line-height: 1.5em;
 }
 
 body, ul, ol, figure, pre, blockquote {
@@ -13,7 +13,7 @@ body, ul, ol, figure, pre, blockquote {
 }
 
 body, button, input, select, textarea {
-  font-family: Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
 }
 
 pre, code {
@@ -21,17 +21,17 @@ pre, code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
   font-weight: normal;
   line-height: 1.8em;
-  margin: 1em 0;
+  margin: 1em 0 0.5em;
 }
 
 h1 {
   font-size: 2em;
+  margin-top: 0.5em;
 }
 h2 {
-  font-size: 1.8em;
+  font-size: 1.6em;
 }
 h3 {
   font-size: 1.6em;
@@ -43,14 +43,21 @@ h5, h6 {
   font-size: 1.2em;
 }
 
-
 hr {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
-  margin: 1em 0;
+  margin: 1em 0 2em;
   padding: 0;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+ul, ol {
+  list-style: none;
 }
 
 table {
@@ -120,4 +127,15 @@ a:hover {
   background: #F8F8F8;
   color: #999;
 }
+
+
+/* article */
+
+article ul, article ol {
+  list-style-type: square;
+  margin: 0 0 1em 1.5em;
+}
+
+
+
 

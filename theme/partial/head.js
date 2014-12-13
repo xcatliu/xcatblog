@@ -9,7 +9,11 @@ module.exports = React.createClass({
       <head>
         <title>Xcat Liu</title>
         <link rel="icon" href="/favicon.ico" />
-        <style>{css}</style>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: css
+          }}
+        />
       </head>
     );
   }

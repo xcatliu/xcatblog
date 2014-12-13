@@ -35,5 +35,10 @@ function getPosts() {
   return fs.readdirSync(this.config.posts_dir).filter(function(fileName) {
     // filter dot files
     return fileName.indexOf('.') !== 0;
-  }).map(parsePost, this);
+  }).map(parsePost, this).sort(function(a, b) {
+    if (typeof a.frontMatter.date === 'undefined') {
+      return false;
+    }
+    return b.frontMatter.date - a.frontMatter.date;
+  });
 }
