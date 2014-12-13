@@ -3,13 +3,13 @@
 body {
   color: #333;
   background: white;
-  font-size: 20px;
-  line-height: 1.5em;
-}
-
-body, ul, ol, figure, pre, blockquote {
+  line-height: 1.8em;
   margin: 0;
   padding: 0;
+}
+
+body, table {
+  font-size: 20px;
 }
 
 body, button, input, select, textarea {
@@ -18,29 +18,44 @@ body, button, input, select, textarea {
 
 pre, code {
   font-family: Courier, Courier New, monospace;
+  background: #f6f6f6;
+}
+
+code {
+  padding: 0.1em 0.3em;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+pre code {
+  display: block;
+  padding: 0.5em 1em;
+  background: transparent;
+  line-height: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
-  line-height: 1.8em;
-  margin: 1em 0 0.5em;
+  margin: 1.5em 0 1em;
 }
 
 h1 {
   font-size: 2em;
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 h2 {
   font-size: 1.6em;
 }
 h3 {
-  font-size: 1.6em;
+  font-size: 1.2em;
 }
 h4 {
-  font-size: 1.4em;
+  font-size: 1.1em;
 }
 h5, h6 {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 hr {
@@ -52,8 +67,23 @@ hr {
   padding: 0;
 }
 
-p {
-  margin: 0.5em 0;
+code {
+  margin: 0;
+}
+
+ul, ol, p {
+  padding: 0;
+  margin: 1em 0;
+}
+
+pre, table, blockquote {
+  font-size: 0.8em;
+  margin: 1.5em 0;
+}
+
+blockquote {
+  padding-left: 1em;
+  border-left: 0.5em solid #f6f6f6;
 }
 
 ul, ol {
@@ -64,6 +94,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+table th, table td {
+  border: 1px solid #eee;
+  padding: 0.5em 1em;
+}
+
+table th {
+  background: #f6f6f6;
+}
+
 
 a {
   color: #5CC3A1;
@@ -133,9 +173,140 @@ a:hover {
 
 article ul, article ol {
   list-style-type: square;
-  margin: 0 0 1em 1.5em;
+  margin-left: 1.5em;
+}
+
+article {
+  padding-bottom: 1em;
 }
 
 
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-id,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+
+.javascript .hljs-title,
+.hljs-list .hljs-keyword,
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-class .hljs-title,
+.hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080;
+}
+
+.hljs-regexp {
+  color: #009926;
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.clojure .hljs-keyword,
+.scheme .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073;
+}
+
+.hljs-built_in {
+  color: #0086b3;
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.diff .hljs-change {
+  background: #0086b3;
+}
+
+.hljs-chunk {
+  color: #aaa;
+}
 
 

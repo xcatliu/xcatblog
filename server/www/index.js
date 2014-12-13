@@ -36,6 +36,7 @@ function reactRender(id) {
   // Use renderToString to run React at server side
   return React.renderToString(React.createElement(ThemeEntrance, {
     id: id,
+    config: this.config,
     db: this.db
   }));
 }

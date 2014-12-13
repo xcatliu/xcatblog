@@ -3,6 +3,8 @@ var React = require('react');
 var Head = require('./partial/head');
 var Header = require('./partial/header');
 var Footer = require('./partial/footer');
+var GoogleAnalytics = require('./partial/google-analytics.js');
+var Disqus = require('./partial/disqus.js');
 
 var Article = React.createClass({
   getContent: function() {
@@ -48,8 +50,14 @@ module.exports = React.createClass({
   getContent: function() {
     var id = this.state.id;
     switch (true) {
+      case id === 'index': return <Article id={this.state.id} db={this.state.db} />;
       case id === 'posts': return <Posts db={this.state.db} />;
-      default: return <Article id={this.state.id} db={this.state.db} />;
+      default: return (
+        <div>
+          <Article id={this.state.id} db={this.state.db} />
+          <Disqus disqus={this.props.config.disqus} />
+        </div>
+      );
     }
   },
   render: function() {
@@ -62,6 +70,7 @@ module.exports = React.createClass({
             {this.getContent()}
           </section>
           <Footer />
+          <GoogleAnalytics ga={this.props.config.ga} />
         </body>
       </html>
     );
