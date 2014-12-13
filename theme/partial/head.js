@@ -7,7 +7,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <head>
-        <title>{this.props.site_title}</title>
+        <title>Xcat Liu</title>
         <link rel="icon" href="/favicon.ico" />
         <style>{css}</style>
       </head>

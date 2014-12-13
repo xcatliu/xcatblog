@@ -3,6 +3,5 @@
   "port_api": 8100,
   "site_url": "http://localhost:8000",
   "site_url_api": "http://localhost:8100",
-  "posts_dir": "/Users/liuyicheng/Dropbox/posts",
-  "site_title": "Xcat Liu"
+  "posts_dir": "/Users/liuyicheng/Dropbox/posts"
 }

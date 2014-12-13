@@ -1,5 +1,6 @@
 var koa = require('koa');
 var route = require('koa-route');
+
 var _ = require('lodash');
 
 module.exports = function() {
@@ -8,6 +9,7 @@ module.exports = function() {
   var app = koa();
 
   app.use(route.get('/', function *() {
+    // https://lodash.com/docs#omit
     this.body = _.omit(context.db, 'posts');
   }));
 
@@ -23,5 +25,5 @@ module.exports = function() {
     });
   }));
 
-  app.listen(config.port_api);
+  app.listen(config.port_api || 8100);
 };

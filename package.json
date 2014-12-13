@@ -1,7 +1,7 @@
 {
-  "name": "xcatliu.com",
+  "name": "xcat",
   "version": "1.0.0",
-  "description": "Maybe the fastest blog system in the world",
+  "description": "*Xcat* is a blog system, maybe the fastest in the world.",
   "main": "index.js",
   "scripts": {
     "start": "node --harmony server"
@@ -12,7 +12,9 @@
   },
   "keywords": [
     "xcat",
-    "blog"
+    "blog",
+    "react",
+    "isomorphic"
   ],
   "author": "xcatliu <xcatliu@gmail.com> (http://xcatliu.com)",
   "license": "MIT",

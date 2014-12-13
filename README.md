@@ -7,29 +7,9 @@ Features
 ---
 
 - Isomophic Application
-- [RESTFul API][XcatLiu API]
-- [Markdown format post][posts]
-- In-memory database
-- Everything is plugin
-- Auto deploy with post-receive hook
+- Ajax API
+- Markdown Format
+- Dropbox Auto Sync
+- In-memory Database
 
-In fact, those features is still in development. 233
-
-Milestone
----
-
-1. 2014-12-31 Complete [XcatLiu API], client side rendering
-2. 2015-02-28 Complete plugin system, post-receive hook, server side rendering
-
-Links
----
-
-- [xcatliu.com]
-- [XcatLiu API]
-- [posts]
-- [dropbox linux installation]
-
-[xcatliu.com]: http://xcatliu.com
-[XcatLiu API]: https://github.com/xcatliu/xcatliu.com/tree/master/server/api
-[posts]: https://github.com/xcatliu/xcatliu.com/tree/master/posts
-[dropbox linux installation]: https://www.dropbox.com/install?os=lnx
+Checkout my blog: [Xcat Liu](http://xcatliu.com)

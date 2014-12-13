@@ -24,7 +24,6 @@ var Article = React.createClass({
 var Posts = React.createClass({
   render: function() {
     var lis = this.props.db.posts.map(function(post) {
-      console.log(post);
       return (
         <li><a href={post.html_url}>{post.frontMatter.title}</a></li>
       );

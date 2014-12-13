@@ -3,7 +3,14 @@ require('node-jsx').install()
 
 var koa = require('koa');
 var route = require('koa-route');
+
+/**
+ * Use React to make Isomorphic Application,
+ * that, render html in both server side and client side.
+ * more information, http://facebook.github.io/react/
+ */
 var React = require('react');
+var ThemeEntrance = require('../../theme');
 
 module.exports = function() {
   var context = this;
@@ -11,28 +18,24 @@ module.exports = function() {
   var app = koa();
 
   app.use(route.get('/', function *() {
-    var reactElement = React.createElement(require('../../theme'), {
-      id: 'index',
-      db: context.db
-    });
-    this.body = React.renderToString(reactElement);
+    this.body = reactRender.call(context, 'index');
   }));
 
   app.use(route.get('/posts', function *() {
-    var reactElement = React.createElement(require('../../theme'), {
-      id: 'posts',
-      db: context.db
-    });
-    this.body = React.renderToString(reactElement);
+    this.body = reactRender.call(context, 'posts');
   }));
 
   app.use(route.get('/posts/:id.html', function *(id) {
-    var reactElement = React.createElement(require('../../theme'), {
-      id: id,
-      db: context.db
-    });
-    this.body = React.renderToString(reactElement);
+    this.body = reactRender.call(context, id);
   }));
 
-  app.listen(config.port);
+  app.listen(config.port || 8000);
 };
+
+function reactRender(id) {
+  // Use renderToString to run React at server side
+  return React.renderToString(React.createElement(ThemeEntrance, {
+    id: id,
+    db: this.db
+  }));
+}
