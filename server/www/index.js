@@ -12,5 +12,13 @@ module.exports = function() {
     this.body = 'Hello World';
   });
 
+  app.get('/posts', function *() {
+    this.body = context.db.posts;
+  });
+
+  app.get('/posts/:id.html', function *() {
+    this.body = context.db['posts/' + this.params.id].contentHTML;
+  });
+
   app.listen(config.port);
 };

@@ -9,23 +9,23 @@ module.exports = function() {
 };
 
 function initDb() {
-  var config = this.config;
-  var posts_dir = this.config.posts_dir;
-  var postsFileNames = fs.readdirSync(posts_dir);
-  var posts = postsFileNames.filter(function(fileName) {
+  var db = {
+    version: Date.now(),
+    posts_url: this.config.site_url_api + '/posts{/post_id}'
+  };
+  var posts = getPosts.call(this);
+  db.posts = posts.map(function(post) {
+    return _.omit(post, ['contentHTML']);
+  });
+  posts.forEach(function(post) {
+    db['posts/' + post.id] = post;
+  });
+  this.db = db;
+}
+
+function getPosts() {
+  return fs.readdirSync(this.config.posts_dir).filter(function(fileName) {
     // filter dot files
     return fileName.indexOf('.') !== 0;
-  }).map(function(fileName) {
-    var fileContent = fs.readFileSync(path.join(posts_dir, fileName)).toString();
-    var id = path.basename(fileName, '.md');
-    return _.merge({
-      id: id,
-      url: config.site_url_api + '/posts/' + id,
-      html_url: config.site_url + '/posts/' + id + '.html'
-    }, parsePost(fileContent));
-  });
-  this.db = {
-    version: Date.now(),
-    posts: posts
-  };
+  }).map(parsePost, this);
 }
