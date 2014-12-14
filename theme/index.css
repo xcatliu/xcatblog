@@ -138,7 +138,7 @@ a:hover {
 /* header */
 
 .header {
-  background: #f8f8f8;
+  background: #f6f6f6;
 }
 
 .header-left {
@@ -164,7 +164,7 @@ a:hover {
 
 .footer {
   text-align: center;
-  background: #F8F8F8;
+  background: #f6f6f6;
   color: #999;
 }
 
@@ -176,8 +176,15 @@ article ul, article ol {
   margin-left: 1.5em;
 }
 
-article {
-  padding-bottom: 1em;
+.article-meta address {
+  font-size: 0.8em;
+  display: inline;
+}
+
+.article-meta time {
+  font-size: 0.8em;
+  color: #999;
+  margin-left: 1em;
 }
 
 

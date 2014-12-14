@@ -6,6 +6,27 @@ var Footer = require('./partial/footer');
 var GoogleAnalytics = require('./partial/google-analytics.js');
 var Disqus = require('./partial/disqus.js');
 
+var moment = require('moment');
+
+var ArticleMeta = React.createClass({
+  getFrontMatter: function() {
+    return this.props.db.posts.find(function(post) {
+      return post.id === this.props.id;
+    }, this).frontMatter;
+  },
+  render: function() {
+    var frontMatter = this.getFrontMatter();
+    return (
+      <section className="article-meta">
+        <h1>{frontMatter.title}</h1>
+        <address><a href="http://xcatliu.com">Xcat Liu</a></address>
+        <time>{moment(frontMatter.date).format('MMM D YYYY')}</time>
+        <hr />
+      </section>
+    );
+  }
+});
+
 var Article = React.createClass({
   getContent: function() {
     return this.props.db.posts.find(function(post) {
@@ -54,6 +75,7 @@ module.exports = React.createClass({
       case id === 'posts': return <Posts db={this.state.db} />;
       default: return (
         <div>
+          <ArticleMeta id={this.state.id} db={this.state.db} />
           <Article id={this.state.id} db={this.state.db} />
           <Disqus disqus={this.props.config.disqus} />
         </div>
