@@ -25,17 +25,26 @@
   "engines": {
     "node": ">= 0.11.13"
   },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "uglifyify"
+    ]
+  },
   "dependencies": {
+    "browserify": "^7.0.0",
     "highlight.js": "^8.4.0",
     "js-yaml": "^3.2.3",
     "koa": "^0.13.0",
+    "koa-gzip": "^0.1.0",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.7",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
-    "moment": "^2.8.4",
     "node-jsx": "^0.12.4",
     "react": "^0.12.1",
+    "reactify": "^0.17.1",
+    "uglifyify": "^2.6.0",
     "watch": "^0.13.0"
   }
 }
