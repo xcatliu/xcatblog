@@ -4,9 +4,6 @@ var path = require('path');
 // Adding watch feature
 var watch = require('watch');
 
-// Hemm, lodash is nice
-var _ = require('lodash');
-
 // This function can parse a Markdown file with Front Matter
 var parsePost = require('./parsePost');
 
