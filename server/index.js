@@ -27,11 +27,11 @@ var context = {
  */
 require('./db').call(context);
 
-// Starting the main server, default port is 8000
+// Starting the main server
 require('./www').call(context);
 
-// Starting the api server, default port is 8100
+// Starting the api server
 require('./api').call(context);
 
-// Starting the img server, default port is 8200
+// Starting the img server
 require('./img').call(context);

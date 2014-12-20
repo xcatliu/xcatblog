@@ -9,5 +9,5 @@ module.exports = function() {
 
   app.use(static(config.img_dir));
 
-  app.listen(config.img_port || 8200);
+  app.listen(config.img_port);
 }

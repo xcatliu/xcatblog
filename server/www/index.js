@@ -48,7 +48,7 @@ module.exports = function() {
     this.body = cssContent;
   }));
 
-  app.listen(config.port || 8000);
+  app.listen(config.port);
 };
 
 function reactRender(id) {
