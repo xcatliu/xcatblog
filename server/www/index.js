@@ -22,6 +22,14 @@ module.exports = function() {
   app.use(gzip());
 
   app.use(route.get('/', function *() {
+    var porps = {
+      id: 'index',
+      config: config,
+      db: this.db
+    }
+  }));
+
+  app.use(route.get('/', function *() {
     this.body = reactRender.call(context, 'index');
   }));
 
