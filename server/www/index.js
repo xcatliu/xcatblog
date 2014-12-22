@@ -26,7 +26,8 @@ module.exports = function() {
       id: 'index',
       config: config,
       db: this.db
-    }
+    };
+    this.body = '<!DOCTYPE html><html></html>';
   }));
 
   app.use(route.get('/', function *() {
