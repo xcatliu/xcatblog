@@ -21,10 +21,12 @@ module.exports = function() {
 
   app.use(gzip());
 
+  // index
   app.use(route.get('/', function *() {
     this.body = reactRender.call(context, 'index');
   }));
 
+  //posts
   app.use(route.get('/posts', function *() {
     this.body = reactRender.call(context, 'posts');
   }));
