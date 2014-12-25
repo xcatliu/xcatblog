@@ -26,15 +26,17 @@ module.exports = function() {
     this.body = reactRender.call(context, 'index');
   }));
 
-  //posts
+  // posts
   app.use(route.get('/posts', function *() {
     this.body = reactRender.call(context, 'posts');
   }));
 
+  // post
   app.use(route.get('/posts/:id.html', function *(id) {
     this.body = reactRender.call(context, id);
   }));
 
+  // bundle
   var bundleContent = '';
   require('./getBundle')(function(data) {
     bundleContent = data;
