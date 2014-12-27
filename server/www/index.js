@@ -46,6 +46,7 @@ module.exports = function() {
     this.body = bundleContent;
   }));
 
+  // css
   var cssContent = fs.readFileSync('theme/index.css');
   app.use(route.get('/index.css', function *() {
     this.type = 'text/css';
