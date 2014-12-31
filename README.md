@@ -1,7 +1,7 @@
 Xcat
 ===
 
-Xcat is a blog system, maybe the fastest in the world.
+Xcat is a blog system, isomorphic application, the React way.
 
 Features
 ---
