@@ -32,6 +32,7 @@
     ]
   },
   "dependencies": {
+    "bluebird": "^2.5.3",
     "browserify": "^7.0.0",
     "highlight.js": "^8.4.0",
     "js-yaml": "^3.2.3",
