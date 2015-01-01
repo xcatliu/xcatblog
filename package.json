@@ -4,7 +4,8 @@
   "description": "Xcat is a blog system, isomorphic application, the React way.",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony server"
+    "start": "node --harmony server",
+    "build": "node bin/build.js"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "koa-gzip": "^0.1.0",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.7",
+    "literalify": "^0.3.0",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
     "node-jsx": "^0.12.4",

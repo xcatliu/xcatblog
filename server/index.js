@@ -19,7 +19,7 @@ var context = {
 
 /**
  * Building In-memory Database
- * 
+ *
  * This line will add a `db` object to `context`.
  * Every file change in `config.posts_dir` will cause database rebuilding.
  * So set `config.posts_dir` to an *Auto Sync System* such as Dropbox,

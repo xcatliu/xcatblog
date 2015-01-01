@@ -1,31 +1,20 @@
 // Enable require jsx directly
 require('node-jsx').install({extension: '.jsx'})
 
-var fs = require('fs');
 var koa = require('koa');
 var gzip = require('koa-gzip');
 var route = require('koa-route');
-
-/**
- * Use React to make Isomorphic Application,
- * that, render html in both server side and client side.
- * more information, http://facebook.github.io/react/
- */
-var React = require('react');
-var ThemeEntrance = require('../../theme/index.jsx');
+var static = require('koa-static');
 
 module.exports = function() {
   var context = this;
-  var config = this.config;
   var app = koa();
 
   app.use(gzip());
 
-  // index
-  app.use(route.get('/', function *() {
-    this.body = reactRender.call(context, 'index');
-  }));
-
+  app.use(static('./static'));
+  app.use(route.get('/', require('./root')));
+/*
   // posts
   app.use(route.get('/posts', function *() {
     this.body = reactRender.call(context, 'posts');
@@ -52,10 +41,12 @@ module.exports = function() {
     this.type = 'text/css';
     this.body = cssContent;
   }));
+*/
 
-  app.listen(config.port);
+  app.listen(this.config.port);
 };
 
+/*
 function reactRender(id) {
   // Use renderToString to run React at server side
   return React.renderToString(React.createElement(ThemeEntrance, {
@@ -64,3 +55,4 @@ function reactRender(id) {
     db: this.db
   }));
 }
+*/
