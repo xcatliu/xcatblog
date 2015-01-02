@@ -13,7 +13,7 @@ module.exports = function() {
   app.use(gzip());
 
   app.use(static('./static'));
-  app.use(route.get('/', require('./root')));
+  app.use(route.get('/', require('./root')(context)));
 /*
   // posts
   app.use(route.get('/posts', function *() {

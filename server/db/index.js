@@ -15,8 +15,6 @@ module.exports = function() {
 // Now let's building our database!
 function initDb() {
   var db = {
-    // `version` is necessary, for updating client-cache
-    version: Date.now(),
     // Like GitHub API, providing every API url
     posts_url: this.config.api_url + '/posts{/post_id}',
     tags_url: this.config.api_url + '/tags{/tag_id}',

@@ -1,9 +1,17 @@
 var React = require('react');
 
+var Header = require('./partial/header.jsx');
+var Section = require('./partial/section.jsx');
+var Footer = require('./partial/footer.jsx');
+
 module.exports = React.createClass({
   render: function() {
     return (
-      <h1>{this.props.id}</h1>
+      <div>
+        <Header />
+        <Section {...this.props} />
+        <Footer />
+      </div>
     );
   }
 });
@@ -31,22 +39,6 @@ var ArticleMeta = React.createClass({
   }
 });
 
-var Article = React.createClass({
-  getContent: function() {
-    return this.props.db.posts.find(function(post) {
-      return post.id === this.props.id;
-    }, this).contentHTML;
-  },
-  render: function() {
-    return (
-      <article
-        dangerouslySetInnerHTML={{
-          __html: this.getContent()
-        }}
-      />
-    );
-  }
-});
 
 var Posts = React.createClass({
   render: function() {
@@ -65,27 +57,4 @@ var Posts = React.createClass({
   }
 });
 
-module.exports = React.createClass({
-  getContent: function() {
-    var id = this.props.id;
-    switch (true) {
-      case id === 'index': return <Article id={this.props.id} db={this.props.db} />;
-      case id === 'posts': return <Posts db={this.props.db} />;
-      default: return (
-        <div>
-          <ArticleMeta id={this.props.id} db={this.props.db} />
-          <Article id={this.props.id} db={this.props.db} />
-          <Disqus disqus={this.props.config.disqus} />
-        </div>
-      );
-    }
-  },
-  render: function() {
-    return (
-      <section className="whole">
-        {this.getContent()}
-      </section>
-    );
-  }
-});
 */
