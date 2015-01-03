@@ -1,6 +1,6 @@
 {
   "name": "xcat",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Xcat is a blog system, isomorphic application, the React way.",
   "main": "index.js",
   "scripts": {
