@@ -3,26 +3,18 @@ var route = require('koa-route');
 
 module.exports = function() {
   var context = this;
-  var config = this.config;
   var app = koa();
 
-  // root
-  app.use(route.get('/', function *() {
-    // https://lodash.com/docs#omit
-    this.body = require('./root').call(context);
-  }));
+  app.use(route.get('/', action('root')));
+  app.use(route.get('/posts', action('posts')));
+  app.use(route.get('/posts/:id', action('post')));
 
-  // posts
-  app.use(route.get('/posts', function *() {
-    this.body = require('./posts').call(context);
-  }));
+  app.listen(this.config.api_port);
 
-  // a post
-  app.use(route.get('/posts/:id', function *(id) {
-    this.body = context.db.posts.find(function(post) {
-      return post.id === id;
-    });
-  }));
+  function action(api) {
+    return function *() {
+      this.body = require('./' + api).apply(context, arguments);
+    };
+  };
 
-  app.listen(config.api_port);
 };

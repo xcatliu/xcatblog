@@ -5,7 +5,7 @@ module.exports = React.createClass({
     return (
       <article
         dangerouslySetInnerHTML={{
-          __html: this.props.date.contentHTML
+          __html: this.props.data.contentHTML
         }}
       />
     );

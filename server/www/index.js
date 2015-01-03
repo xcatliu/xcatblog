@@ -13,47 +13,34 @@ module.exports = function() {
   app.use(gzip());
 
   app.use(static('./static'));
-  app.use(route.get('/', require('./root')(context)));
-  app.use(route.get('/posts', require('./posts')(context)));
-/*
-  // posts
-  app.use(route.get('/posts', function *() {
-    this.body = reactRender.call(context, 'posts');
-  }));
-
-  // post
-  app.use(route.get('/posts/:id.html', function *(id) {
-    this.body = reactRender.call(context, id);
-  }));
-
-  // bundle
-  var bundleContent = '';
-  require('./getBundle')(function(data) {
-    bundleContent = data;
-  });
-  app.use(route.get('/index.js', function *() {
-    this.type = 'application/javascript';
-    this.body = bundleContent;
-  }));
-
-  // css
-  var cssContent = fs.readFileSync('theme/index.css');
-  app.use(route.get('/index.css', function *() {
-    this.type = 'text/css';
-    this.body = cssContent;
-  }));
-*/
+  app.use(route.get('/', action('root')));
+  app.use(route.get('/posts', action('posts')));
+  app.use(route.get('/posts/:id.html', action('post')));
 
   app.listen(this.config.port);
+
+  function action(api) {
+    return function *() {
+      var props = {
+        data: require('../api/' + api).apply(context, arguments),
+        config: context.config
+      };
+      getHTML.call(this, props);
+    };
+  };
+
 };
 
-/*
-function reactRender(id) {
-  // Use renderToString to run React at server side
-  return React.renderToString(React.createElement(ThemeEntrance, {
-    id: id,
-    config: this.config,
-    db: this.db
-  }));
+var React = require('react');
+var ThemeHead = require('../../theme/head.jsx');
+var ThemeContent = require('../../theme/content.jsx');
+var ThemeScripts = require('../../theme/scripts.jsx');
+
+function getHTML(props) {
+  var head = React.renderToString(React.createElement(ThemeHead, props));
+  var content = React.renderToString(React.createElement(ThemeContent, props));
+  var scripts = React.renderToString(React.createElement(ThemeScripts, props));
+  this.body = '<!doctype HTML><html>' + head + '<body>' +
+      '<div id="content">' + content +'</div>' +
+      scripts + '</body></html>';
 }
-*/

@@ -1,15 +1,26 @@
 var React = require('react');
 
 var Header = require('./partial/header.jsx');
-var Section = require('./partial/section.jsx');
 var Footer = require('./partial/footer.jsx');
 
+var layout = {
+  index: require('./layout/index.jsx'),
+  archive: require('./layout/archive.jsx'),
+  post: require('./layout/post.jsx')
+};
+
 module.exports = React.createClass({
+  getLayout: function() {
+    var Layout = layout[this.props.data.layout];
+    return <Layout {...this.props} />;
+  },
   render: function() {
     return (
       <div>
         <Header />
-        <Section {...this.props} />
+        <section className='whole'>
+          {this.getLayout()}
+        </section>
         <Footer />
       </div>
     );
@@ -20,24 +31,6 @@ module.exports = React.createClass({
 
 var Disqus = require('./partial/disqus.jsx');
 
-var ArticleMeta = React.createClass({
-  getFrontMatter: function() {
-    return this.props.db.posts.find(function(post) {
-      return post.id === this.props.id;
-    }, this).frontMatter;
-  },
-  render: function() {
-    var frontMatter = this.getFrontMatter();
-    return (
-      <section className="article-meta">
-        <h1>{frontMatter.title}</h1>
-        <address><a href="http://xcatliu.com">Xcat Liu</a></address>
-        <time>{frontMatter.date.toString()}</time>
-        <hr />
-      </section>
-    );
-  }
-});
 
 
 

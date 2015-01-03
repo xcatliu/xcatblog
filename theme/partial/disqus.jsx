@@ -2,11 +2,11 @@ var React = require('react');
 
 module.exports = React.createClass({
   render: function() {
-    if (typeof this.props.disqus === 'undefined') {
+    if (typeof this.props.config.disqus === 'undefined') {
       return null;
     }
     var scriptContent = "" +
-        "var disqus_shortname = '" + this.props.disqus + "';" +
+        "var disqus_shortname = '" + this.props.config.disqus + "';" +
         "(function() {" +
         "var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;" +
         "dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';" +

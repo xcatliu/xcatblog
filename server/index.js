@@ -27,11 +27,11 @@ var context = {
  */
 require('./db').call(context);
 
-// Starting the main server
+// The main web server
 require('./www').call(context);
 
-// Starting the api server
+// Provide RESTful api, and requirable api
 require('./api').call(context);
 
-// Starting the img server
+// A simple static server
 require('./img').call(context);

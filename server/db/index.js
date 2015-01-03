@@ -8,18 +8,13 @@ var watch = require('watch');
 var parsePost = require('./parsePost');
 
 module.exports = function() {
-  // Will trigger one time at the beginning
+  // Will Automatic trigger one time at the beginning
   watch.watchTree(this.config.posts_dir, initDb.bind(this));
 };
 
 // Now let's building our database!
 function initDb() {
-  var db = {
-    // Like GitHub API, providing every API url
-    posts_url: this.config.api_url + '/posts{/post_id}',
-    tags_url: this.config.api_url + '/tags{/tag_id}',
-    categories_url: this.config.api_url + '/categories{/category_id}'
-  };
+  var db = {};
   // Get all posts first
   var posts = getPosts.call(this);
   db.posts = posts;
@@ -31,8 +26,12 @@ function getPosts() {
     // filter dot files
     return fileName.indexOf('.') !== 0;
   }).map(parsePost, this).sort(function(a, b) {
+    // undefined should be in the last position
     if (typeof a.frontMatter.date === 'undefined') {
-      return false;
+      return 1;
+    }
+    if (typeof b.frontMatter.date === 'undefined') {
+      return -1;
     }
     return b.frontMatter.date - a.frontMatter.date;
   });
