@@ -14,6 +14,7 @@ module.exports = function() {
 
   app.use(static('./static'));
   app.use(route.get('/', require('./root')(context)));
+  app.use(route.get('/posts', require('./posts')(context)));
 /*
   // posts
   app.use(route.get('/posts', function *() {
