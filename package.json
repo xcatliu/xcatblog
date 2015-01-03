@@ -28,7 +28,8 @@
   },
   "browserify": {
     "transform": [
-      "reactify"
+      "reactify",
+      "uglifyify"
     ]
   },
   "dependencies": {

@@ -6,7 +6,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div>
-        <script src="/react-0.12.2.js" />
+        <script src="/react-0.12.2.min.js" />
         <script src="/bundle.min.js" />
         <script
           dangerouslySetInnerHTML={{
