@@ -5,8 +5,8 @@ module.exports = React.createClass({
     return (
       <header className="header">
         <nav className="whole">
-          <a href="/">Xcat Liu</a>
-          <a href="/posts">Blog</a>
+          <a onClick={this.props.onLinkClick} href="/">Xcat Liu</a>
+          <a onClick={this.props.onLinkClick} href="/posts">Blog</a>
         </nav>
       </header>
     );

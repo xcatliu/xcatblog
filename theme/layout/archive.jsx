@@ -5,12 +5,12 @@ module.exports = React.createClass({
     var lis = this.props.data.posts.map(function(post) {
       return (
         <li key={post.id}>
-          <a href={post.html_url}>
+          <a onClick={this.props.onLinkClick} href={post.html_url}>
             {post.frontMatter.title}
           </a>
         </li>
       );
-    });
+    }, this);
     return (
       <ul>
         {lis}

@@ -13,6 +13,8 @@ module.exports = function() {
 
   function action(api) {
     return function *() {
+      this.set('Access-Control-Allow-Origin', context.config.url);
+      this.set('Access-Control-Allow-Credentials', true);
       this.body = require('./' + api).apply(context, arguments);
     };
   };
