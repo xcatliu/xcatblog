@@ -1,6 +1,8 @@
 Xcat
 ===
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xcatliu/xcatblog.svg)](https://greenkeeper.io/)
+
 Xcat is a blog system, isomorphic application, the React way.
 
 Features
