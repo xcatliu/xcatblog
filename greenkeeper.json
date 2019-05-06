@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        ".back/package.json",
+        ".back/themes/xcatliu/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
